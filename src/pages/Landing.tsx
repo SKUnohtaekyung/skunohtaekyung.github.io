@@ -1,7 +1,7 @@
 // 랜딩 — 7섹션 골격 (P1). Hero 모션(P3)·시그니처 전환(P4)·낙서/피날레 연출(P6)은 이후 페이즈.
 // 가드레일(§8): 박스 남용 금지(border-t 구분), 라임 텍스트 금지, min-h-[100dvh].
 // 타이포 경계: Avant Garde는 영문 디스플레이 전용(§0.1-6) — 한글 헤드라인·프레이밍은 Pretendard.
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef, useState, useEffect, Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
 import About from '../components/about/About'
