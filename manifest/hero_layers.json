@@ -1,0 +1,31 @@
+{
+  "_comment": "Hero 콜라주 자화상의 레이어 분리 에셋 카탈로그. 좌표 원본(source of truth)은 hero_layers_manifest.json. 각 레이어를 마우스/스크롤에 반응시켜 parallax 구현용. path는 포트폴리오 루트 기준 상대경로.",
+  "generated": "2026-06-09",
+  "coordinate_source": "이미지_생성결과/hero_layers/hero_layers_manifest.json",
+  "canvas": { "width": 1672, "height": 941 },
+  "design_note": "design-direction.md: Hero는 타이포가 주인공, 콜라주(자화상+오브젝트)는 타이포 옆 보조. 인물 포즈(폰 보는 자세)는 유지 확정.",
+  "motion_guide": "인물=거의 고정(scale 1.00~1.02, 아주 약한 parallax). 커서·노트·작은 카드=마우스에 크게 반응. 큰 카드·노트북=천천히. 스크롤 시 오브젝트만 약하게 이동. reduced-motion=정지. (work-log §6.5/§7.1)",
+  "known_issue": "hero_layers_manifest.json의 'person_isolated' 항목은 width/height가 캔버스 전체(1672x941)·x840·y180으로 placeholder성 값이라 그대로 absolute 배치하면 깨짐. 구현 시 person_isolated의 실제 bounding box를 재측정하거나, 정상 좌표가 있는 person_seated(x730 y175 650x760)를 사용.",
+  "layers": [
+    { "path": "이미지_생성결과/hero_layers/hero_base_offwhite.png", "role": "base", "desc": "#F8FAFC에 가까운 기본 배경", "parallax": "고정(0)" },
+    { "path": "이미지_생성결과/hero_layers/person_isolated.png", "role": "person", "desc": "인물 단독 레이어(추천, 크로마키 투명 처리본). 깔끔하나 원본 인물과 완전 동일하진 않음", "parallax": "거의 고정", "issue": "manifest bbox가 placeholder — 실측 필요(known_issue 참조)" },
+    { "path": "이미지_생성결과/hero_layers/person_isolated_chromakey.png", "role": "person_source", "desc": "인물 단독의 마젠타 크로마키 원본(투명 처리 전 보관본)", "parallax": "n/a" },
+    { "path": "이미지_생성결과/hero_layers/person_seated.png", "role": "person_alt", "desc": "인물+주변 클러스터 레이어(원본 밀도 재현용, 정상 좌표 650x760)", "parallax": "거의 고정" },
+    { "path": "이미지_생성결과/hero_layers/laptop_right.png", "role": "object", "desc": "우측 노트북", "parallax": "느리게" },
+    { "path": "이미지_생성결과/hero_layers/code_panel_right.png", "role": "object", "desc": "우측 코드 패널 카드", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/cursor_arrow.png", "role": "object", "desc": "커서 화살표", "parallax": "빠르게(마우스 반응 큼)" },
+    { "path": "이미지_생성결과/hero_layers/top_blank_frame.png", "role": "object", "desc": "상단 빈 프레임", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/top_wireframe_card.png", "role": "object", "desc": "상단 와이어프레임 카드", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/top_chart_card.png", "role": "object", "desc": "상단 차트 카드", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/middle_flow_card.png", "role": "object", "desc": "중앙 플로우 카드", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/orange_blue_notes.png", "role": "object", "desc": "오렌지/블루 메모지", "parallax": "빠르게" },
+    { "path": "이미지_생성결과/hero_layers/bottom_chart_strip.png", "role": "object", "desc": "하단 차트 스트립", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/bottom_image_card.png", "role": "object", "desc": "하단 이미지 카드", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/bottom_info_card.png", "role": "object", "desc": "하단 정보 카드", "parallax": "중간" },
+    { "path": "이미지_생성결과/hero_layers/right_diagram_card.png", "role": "object", "desc": "우측 다이어그램 카드", "parallax": "중간" }
+  ],
+  "review_files": [
+    "이미지_생성결과/hero_layers/_hero_layers_contact.png",
+    "이미지_생성결과/hero_layers/_hero_layers_composite_preview.png"
+  ]
+}

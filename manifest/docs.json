@@ -1,0 +1,76 @@
+{
+  "_comment": "TAEKYUNG WORKS 포트폴리오 문서 카탈로그. AI 에이전트는 read_order 순서대로 읽고, authority/stale를 신뢰 기준으로 삼을 것. 모든 path는 프로젝트 루트(포트폴리오 폴더) 기준 상대경로.",
+  "generated": "2026-06-09",
+  "docs": [
+    {
+      "read_order": 1,
+      "path": "taekyung-works-design-direction.md",
+      "title": "디자인 방향 결정 문서 (Design Direction)",
+      "role": "대화로 합의한 구성·비주얼·인터랙션 방향의 최종 결정 로그",
+      "summary": "이중 동선(스캔+몰입), 하이브리드 포맷(랜딩+상세 페이지), 비주얼 언어 위계(타이포 보스/콜라주 액센트/MS Paint=벨로그), 페이지별 액센트 색 규칙, 시그니처 진입 전환(CSS 3D 플립+원확산), Hero 카피, 10초 요약, Selected Projects 지그재그, 생각의 기록(벨로그 허브), 그 외 작업(FLOW·AboutPM, 'Lab' 해체), 블랙 피날레 엔딩(Carpe Diem)까지 포함.",
+      "authority": "high",
+      "stale": false,
+      "notes": "가장 최신·권위 문서. 다른 문서와 충돌 시 이 문서를 따른다. 일부 룸 스펙은 design-system.md를 이 문서 기준으로 재해석(룸=페이지). 2026-06-11 §0.1 갱신 포함(1~8: 라벨=Pretendard 스위스 라벨·클릭 전 룸 색·PickFit 동반색 #4D5EFF·Avant Garde 로고타입 느낌·히어로 워드마크=PORTFOLIO/NOH TAE KYUNG·Avant Garde 디자인된 레터링[겹침+notch 근사/커스텀 벡터 레터링, 합자는 폰트에 없음]) — 프로토타입으로 검증(세팅 시 제거)."
+    },
+    {
+      "read_order": 2,
+      "path": "portfolio-planning.md",
+      "title": "포트폴리오 기획 문서 (v2/v3)",
+      "role": "콘텐츠·케이스스터디·카피의 출처(무엇을·왜)",
+      "summary": "포트폴리오 목표(PM 취업), 포지셔닝, 핵심 철학(Carpe Diem / 결정 가능한 흐름), 레퍼런스 분석 20선, Decision Log, IA, 섹션별 콘텐츠, PULSE/PickFit/LikeLion 케이스스터디 상세(역할·문제·인사이트·솔루션·카피), Experience(FLOW·학생회), Lab(AboutPM 등), Thinking Archive, Public Links, Asset Checklist, Security Checklist, Resume 방향, Claude Design/Code 프롬프트, 구현 계획.",
+      "authority": "high",
+      "stale": false,
+      "notes": "콘텐츠/카피 기준 문서. 단 §13.3 LikeLion은 v3 심화로 보강됨, §19.1 Asset Checklist는 보유 자료 확정 반영됨."
+    },
+    {
+      "read_order": 3,
+      "path": "taekyung-works-design-system.md",
+      "title": "디자인 시스템 (v1.0)",
+      "role": "컬러 토큰·타이포·룸 템플릿·모션 토큰·컴포넌트 시스템",
+      "summary": "전체 베이스 #F8FAFC, 프로젝트별 컬러 시스템(PULSE/PickFit/LikeLion/FLOW/Lab) CSS 변수, 타이포(ITC Avant Garde/Pretendard/JetBrains Mono), Type Scale, 레이아웃·룸 레이아웃, Room Template(Entrance/MainWall/FloatingEvidenceFrames/InfoDock/MotionLayer/Exit), 프로젝트별 룸 스펙·Info Dock 내용, 모션 원칙·토큰, 반응형, 접근성, designTokens/Tailwind 초안, Claude Design/Code 핸드오프 프롬프트.",
+      "authority": "high",
+      "stale": false,
+      "notes": "토큰·룸 스펙 기준. 단 '원페이지 풀뷰포트 룸' 전제는 design-direction.md에서 '룸=상세 페이지'로 재해석됨. LikeLion §11.3는 커리큘럼·운영 심화 반영. 2026-06-11: §8.4 라벨=Pretendard 대문자 스위스 라벨로 변경(모노 폐기), PickFit 라임 동반색(#4D5EFF) 가독성 규칙 추가, §8.2 Avant Garde 로고타입 느낌 명시 — design-direction §0.1과 정합."
+    },
+    {
+      "read_order": 4,
+      "path": "portfolio-work-log-and-next-plan.md",
+      "title": "작업 기록 및 향후 계획",
+      "role": "지금까지 한 작업의 기록 + 초기 향후 계획(일부 철 지남)",
+      "summary": "현재 목표, 사용자 결정 사항, PM 관점 전략, 수정 문서 이력, 분석한 참고 자료, 생성한 이미지 에셋 목록(룸 배경/전환/프레임/오브젝트팩/Hero 자화상/Hero 레이어), 구현 방향, 남은 이슈, Phase 1~8 계획.",
+      "authority": "reference",
+      "stale": true,
+      "notes": "2026-06-08 기준. 이후 진행으로 일부 무효: 스크린샷 Room별 매핑 완료, LikeLion 심화 완료, 비주얼 방향(이중동선/하이브리드)·시그니처 전환 등은 design-direction.md가 갱신. 에셋 '제작 이력'으로만 신뢰."
+    },
+    {
+      "read_order": 5,
+      "path": "참고 자료 이미지/멋쟁이사자처럼/커리큘럼.md",
+      "title": "LikeLion 기획파트 20주 커리큘럼 (원본)",
+      "role": "LikeLion 케이스스터디의 1차 소스 — 노태경이 단독 설계·강의한 기획 커리큘럼(기획 단독, 디자인은 별도 운영진 — 단독 여부는 대화/design-direction.md에서 확정. 이 .md 파일 자체엔 저자 표기 없음)",
+      "summary": "20주 정규 커리큘럼 전문. 1~4주(역기획·Why/Who/페르소나·What/MVP/MoSCoW·IA/User Flow), 5~6주(화면설계서+로직·예외처리·상태설계), 7~11주(개인 포폴·아이디어톤·UT·RICE/Kano), 12주(퍼널·AARRR), 13주(PM을 위한 AI 활용), 15주(협업·개발프로세스), 16주(BM·BMC·CAC/LTV), 17~20주(해커톤·회고·문제 재정의).",
+      "authority": "high",
+      "stale": false,
+      "notes": "LikeLion Room의 4-Phase 아키텍처 근거. 데이터·비즈니스·로직·상태 설계 깊이의 증거."
+    },
+    {
+      "read_order": 6,
+      "path": "이미지_래퍼런스/image.md",
+      "title": "포트폴리오 이미지 프롬프트 최종본",
+      "role": "생성 이미지 에셋(이미지_생성결과)의 제작 프롬프트·사양",
+      "summary": "Hero/Room/Transition/Object Pack/Frame 등 모든 생성 에셋의 프롬프트, 공통 스타일·금지 조건, 에셋 우선순위, 프로젝트별 컬러, 비율 가이드(16:9/9:16/1:1/투명), 파일명 규칙, 제작 순서.",
+      "authority": "reference",
+      "stale": false,
+      "notes": "생성 자산의 의도·사양 참고용. 생성 결과물은 이미지_생성결과/ 폴더, 카탈로그는 assets.generated.json."
+    },
+    {
+      "read_order": 7,
+      "path": "이미지_래퍼런스/imgeprompt.md",
+      "title": "종이 콜라주 포스터 변환 프롬프트",
+      "role": "손으로 자른 종이 콜라주 스타일 변환 프롬프트(단일 기법 문서)",
+      "summary": "첨부 이미지를 미술관용 종이 콜라주 포스터로 변환하는 상세 규칙(형태·색·구성·텍스트·질감·금지 조건).",
+      "authority": "reference",
+      "stale": false,
+      "notes": "콜라주 스타일 정의용. collage_ref_*.jpeg가 이 스타일의 레퍼런스 입력."
+    }
+  ]
+}

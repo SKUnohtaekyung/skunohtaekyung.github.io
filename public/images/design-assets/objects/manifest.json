@@ -1,0 +1,2084 @@
+{
+  "generated_from": "scripts/slice-object-packs.py",
+  "alpha_threshold": 32,
+  "padding": 8,
+  "total_count": 128,
+  "packs": {
+    "common": {
+      "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+      "count": 47,
+      "contact_sheet": "public/images/design-assets/objects/common-contact-sheet.png",
+      "objects": [
+        {
+          "id": "common-object-001",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-001.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 29,
+            "y": 15,
+            "width": 331,
+            "height": 313
+          },
+          "trimmed_pixels": 85221,
+          "method": "auto",
+          "width": 331,
+          "height": 313
+        },
+        {
+          "id": "common-object-002",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-002.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 384,
+            "y": 32,
+            "width": 225,
+            "height": 284
+          },
+          "trimmed_pixels": 53105,
+          "method": "auto",
+          "width": 225,
+          "height": 284
+        },
+        {
+          "id": "common-object-003",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-003.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1243,
+            "y": 45,
+            "width": 259,
+            "height": 222
+          },
+          "trimmed_pixels": 30373,
+          "method": "auto",
+          "width": 259,
+          "height": 222
+        },
+        {
+          "id": "common-object-004",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-004.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 630,
+            "y": 48,
+            "width": 393,
+            "height": 247
+          },
+          "trimmed_pixels": 79489,
+          "method": "auto",
+          "width": 393,
+          "height": 247
+        },
+        {
+          "id": "common-object-005",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-005.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1038,
+            "y": 54,
+            "width": 191,
+            "height": 217
+          },
+          "trimmed_pixels": 30509,
+          "method": "auto",
+          "width": 191,
+          "height": 217
+        },
+        {
+          "id": "common-object-006",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-006.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1252,
+            "y": 278,
+            "width": 71,
+            "height": 72
+          },
+          "trimmed_pixels": 2339,
+          "method": "auto",
+          "width": 71,
+          "height": 72
+        },
+        {
+          "id": "common-object-007",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-007.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1168,
+            "y": 279,
+            "width": 71,
+            "height": 71
+          },
+          "trimmed_pixels": 2344,
+          "method": "auto",
+          "width": 71,
+          "height": 71
+        },
+        {
+          "id": "common-object-008",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-008.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1337,
+            "y": 279,
+            "width": 71,
+            "height": 70
+          },
+          "trimmed_pixels": 2352,
+          "method": "auto",
+          "width": 71,
+          "height": 70
+        },
+        {
+          "id": "common-object-009",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-009.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1422,
+            "y": 279,
+            "width": 70,
+            "height": 71
+          },
+          "trimmed_pixels": 2342,
+          "method": "auto",
+          "width": 70,
+          "height": 71
+        },
+        {
+          "id": "common-object-010",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-010.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 426,
+            "y": 331,
+            "width": 301,
+            "height": 90
+          },
+          "trimmed_pixels": 18258,
+          "method": "auto",
+          "width": 301,
+          "height": 90
+        },
+        {
+          "id": "common-object-011",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-011.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 758,
+            "y": 333,
+            "width": 306,
+            "height": 87
+          },
+          "trimmed_pixels": 17728,
+          "method": "auto",
+          "width": 306,
+          "height": 87
+        },
+        {
+          "id": "common-object-012",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-012.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 29,
+            "y": 341,
+            "width": 371,
+            "height": 86
+          },
+          "trimmed_pixels": 20075,
+          "method": "auto",
+          "width": 371,
+          "height": 86
+        },
+        {
+          "id": "common-object-013",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-013.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1082,
+            "y": 347,
+            "width": 150,
+            "height": 81
+          },
+          "trimmed_pixels": 6888,
+          "method": "auto",
+          "width": 150,
+          "height": 81
+        },
+        {
+          "id": "common-object-014",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-014.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1404,
+            "y": 368,
+            "width": 93,
+            "height": 222
+          },
+          "trimmed_pixels": 11269,
+          "method": "auto",
+          "width": 93,
+          "height": 222
+        },
+        {
+          "id": "common-object-015",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-015.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1300,
+            "y": 369,
+            "width": 103,
+            "height": 220
+          },
+          "trimmed_pixels": 10931,
+          "method": "auto",
+          "width": 103,
+          "height": 220
+        },
+        {
+          "id": "common-object-016",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-016.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1195,
+            "y": 381,
+            "width": 121,
+            "height": 209
+          },
+          "trimmed_pixels": 10282,
+          "method": "auto",
+          "width": 121,
+          "height": 209
+        },
+        {
+          "id": "common-object-017",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-017.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 24,
+            "y": 428,
+            "width": 357,
+            "height": 108
+          },
+          "trimmed_pixels": 26152,
+          "method": "auto",
+          "width": 357,
+          "height": 108
+        },
+        {
+          "id": "common-object-018",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-018.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 418,
+            "y": 439,
+            "width": 410,
+            "height": 85
+          },
+          "trimmed_pixels": 26056,
+          "method": "auto",
+          "width": 410,
+          "height": 85
+        },
+        {
+          "id": "common-object-019",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-019.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 864,
+            "y": 439,
+            "width": 275,
+            "height": 88
+          },
+          "trimmed_pixels": 15835,
+          "method": "auto",
+          "width": 275,
+          "height": 88
+        },
+        {
+          "id": "common-object-020",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-020.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 21,
+            "y": 550,
+            "width": 217,
+            "height": 296
+          },
+          "trimmed_pixels": 55731,
+          "method": "auto",
+          "width": 217,
+          "height": 296
+        },
+        {
+          "id": "common-object-021",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-021.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 556,
+            "y": 552,
+            "width": 230,
+            "height": 287
+          },
+          "trimmed_pixels": 56285,
+          "method": "auto",
+          "width": 230,
+          "height": 287
+        },
+        {
+          "id": "common-object-022",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-022.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 265,
+            "y": 558,
+            "width": 278,
+            "height": 269
+          },
+          "trimmed_pixels": 63963,
+          "method": "auto",
+          "width": 278,
+          "height": 269
+        },
+        {
+          "id": "common-object-023",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-023.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 829,
+            "y": 560,
+            "width": 246,
+            "height": 167
+          },
+          "trimmed_pixels": 32887,
+          "method": "auto",
+          "width": 246,
+          "height": 167
+        },
+        {
+          "id": "common-object-024",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-024.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1116,
+            "y": 601,
+            "width": 107,
+            "height": 119
+          },
+          "trimmed_pixels": 4096,
+          "method": "auto",
+          "width": 107,
+          "height": 119
+        },
+        {
+          "id": "common-object-025",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-025.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1228,
+            "y": 606,
+            "width": 93,
+            "height": 126
+          },
+          "trimmed_pixels": 4204,
+          "method": "auto",
+          "width": 93,
+          "height": 126
+        },
+        {
+          "id": "common-object-026",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-026.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1430,
+            "y": 619,
+            "width": 88,
+            "height": 112
+          },
+          "trimmed_pixels": 3893,
+          "method": "auto",
+          "width": 88,
+          "height": 112
+        },
+        {
+          "id": "common-object-027",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-027.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1329,
+            "y": 623,
+            "width": 98,
+            "height": 113
+          },
+          "trimmed_pixels": 4143,
+          "method": "auto",
+          "width": 98,
+          "height": 113
+        },
+        {
+          "id": "common-object-028",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-028.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 833,
+            "y": 735,
+            "width": 105,
+            "height": 112
+          },
+          "trimmed_pixels": 4338,
+          "method": "auto",
+          "width": 105,
+          "height": 112
+        },
+        {
+          "id": "common-object-029",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-029.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 942,
+            "y": 735,
+            "width": 107,
+            "height": 114
+          },
+          "trimmed_pixels": 4578,
+          "method": "auto",
+          "width": 107,
+          "height": 114
+        },
+        {
+          "id": "common-object-030",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-030.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1055,
+            "y": 740,
+            "width": 165,
+            "height": 107
+          },
+          "trimmed_pixels": 7021,
+          "method": "auto",
+          "width": 165,
+          "height": 107
+        },
+        {
+          "id": "common-object-031",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-031.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1218,
+            "y": 753,
+            "width": 147,
+            "height": 88
+          },
+          "trimmed_pixels": 7423,
+          "method": "auto",
+          "width": 147,
+          "height": 88
+        },
+        {
+          "id": "common-object-032",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-032.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1369,
+            "y": 763,
+            "width": 142,
+            "height": 95
+          },
+          "trimmed_pixels": 6738,
+          "method": "auto",
+          "width": 142,
+          "height": 95
+        },
+        {
+          "id": "common-object-033",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-033.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 22,
+            "y": 865,
+            "width": 130,
+            "height": 121
+          },
+          "trimmed_pixels": 5915,
+          "method": "auto",
+          "width": 130,
+          "height": 121
+        },
+        {
+          "id": "common-object-034",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-034.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 163,
+            "y": 868,
+            "width": 127,
+            "height": 118
+          },
+          "trimmed_pixels": 5582,
+          "method": "auto",
+          "width": 127,
+          "height": 118
+        },
+        {
+          "id": "common-object-035",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-035.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 305,
+            "y": 869,
+            "width": 126,
+            "height": 118
+          },
+          "trimmed_pixels": 5483,
+          "method": "auto",
+          "width": 126,
+          "height": 118
+        },
+        {
+          "id": "common-object-036",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-036.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 447,
+            "y": 870,
+            "width": 125,
+            "height": 117
+          },
+          "trimmed_pixels": 5373,
+          "method": "auto",
+          "width": 125,
+          "height": 117
+        },
+        {
+          "id": "common-object-037",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-037.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 578,
+            "y": 871,
+            "width": 98,
+            "height": 124
+          },
+          "trimmed_pixels": 4895,
+          "method": "auto",
+          "width": 98,
+          "height": 124
+        },
+        {
+          "id": "common-object-038",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-038.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 694,
+            "y": 891,
+            "width": 83,
+            "height": 92
+          },
+          "trimmed_pixels": 2608,
+          "method": "auto",
+          "width": 83,
+          "height": 92
+        },
+        {
+          "id": "common-object-039",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-039.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 770,
+            "y": 891,
+            "width": 83,
+            "height": 91
+          },
+          "trimmed_pixels": 2507,
+          "method": "auto",
+          "width": 83,
+          "height": 91
+        },
+        {
+          "id": "common-object-040",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-040.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 852,
+            "y": 892,
+            "width": 83,
+            "height": 92
+          },
+          "trimmed_pixels": 2571,
+          "method": "auto",
+          "width": 83,
+          "height": 92
+        },
+        {
+          "id": "common-object-041",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-041.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 929,
+            "y": 893,
+            "width": 81,
+            "height": 91
+          },
+          "trimmed_pixels": 2511,
+          "method": "auto",
+          "width": 81,
+          "height": 91
+        },
+        {
+          "id": "common-object-042",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-042.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1284,
+            "y": 894,
+            "width": 73,
+            "height": 98
+          },
+          "trimmed_pixels": 3556,
+          "method": "auto",
+          "width": 73,
+          "height": 98
+        },
+        {
+          "id": "common-object-043",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-043.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1366,
+            "y": 894,
+            "width": 73,
+            "height": 98
+          },
+          "trimmed_pixels": 3532,
+          "method": "auto",
+          "width": 73,
+          "height": 98
+        },
+        {
+          "id": "common-object-044",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-044.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1446,
+            "y": 894,
+            "width": 71,
+            "height": 98
+          },
+          "trimmed_pixels": 3422,
+          "method": "auto",
+          "width": 71,
+          "height": 98
+        },
+        {
+          "id": "common-object-045",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-045.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1022,
+            "y": 906,
+            "width": 69,
+            "height": 69
+          },
+          "trimmed_pixels": 2180,
+          "method": "auto",
+          "width": 69,
+          "height": 69
+        },
+        {
+          "id": "common-object-046",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-046.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1101,
+            "y": 906,
+            "width": 69,
+            "height": 70
+          },
+          "trimmed_pixels": 2255,
+          "method": "auto",
+          "width": 69,
+          "height": 70
+        },
+        {
+          "id": "common-object-047",
+          "pack": "common",
+          "file": "public/images/design-assets/objects/common/common-object-047.png",
+          "source": "public/images/design-assets/object-packs/common_floating_paperpack.png",
+          "source_bbox": {
+            "x": 1187,
+            "y": 907,
+            "width": 71,
+            "height": 71
+          },
+          "trimmed_pixels": 2383,
+          "method": "auto",
+          "width": 71,
+          "height": 71
+        }
+      ]
+    },
+    "likelion": {
+      "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+      "count": 24,
+      "contact_sheet": "public/images/design-assets/objects/likelion-contact-sheet.png",
+      "objects": [
+        {
+          "id": "likelion-object-001",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-001.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 29,
+            "y": 30,
+            "width": 554,
+            "height": 318
+          },
+          "trimmed_pixels": 152085,
+          "method": "auto",
+          "width": 554,
+          "height": 318
+        },
+        {
+          "id": "likelion-object-002",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-002.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 595,
+            "y": 47,
+            "width": 290,
+            "height": 302
+          },
+          "trimmed_pixels": 72953,
+          "method": "auto",
+          "width": 290,
+          "height": 302
+        },
+        {
+          "id": "likelion-object-003",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-003.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 1121,
+            "y": 49,
+            "width": 497,
+            "height": 323
+          },
+          "trimmed_pixels": 137424,
+          "method": "auto",
+          "width": 497,
+          "height": 323
+        },
+        {
+          "id": "likelion-object-004",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-004.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 910,
+            "y": 65,
+            "width": 197,
+            "height": 280
+          },
+          "trimmed_pixels": 43236,
+          "method": "auto",
+          "width": 197,
+          "height": 280
+        },
+        {
+          "id": "likelion-object-005",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-005.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 673,
+            "y": 360,
+            "width": 242,
+            "height": 157
+          },
+          "trimmed_pixels": 29503,
+          "method": "auto",
+          "width": 242,
+          "height": 157
+        },
+        {
+          "id": "likelion-object-006",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-006.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 39,
+            "y": 361,
+            "width": 150,
+            "height": 156
+          },
+          "trimmed_pixels": 17048,
+          "method": "auto",
+          "width": 150,
+          "height": 156
+        },
+        {
+          "id": "likelion-object-007",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-007.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 201,
+            "y": 365,
+            "width": 136,
+            "height": 151
+          },
+          "trimmed_pixels": 14806,
+          "method": "auto",
+          "width": 136,
+          "height": 151
+        },
+        {
+          "id": "likelion-object-008",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-008.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 346,
+            "y": 373,
+            "width": 133,
+            "height": 146
+          },
+          "trimmed_pixels": 13874,
+          "method": "auto",
+          "width": 133,
+          "height": 146
+        },
+        {
+          "id": "likelion-object-009",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-009.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 489,
+            "y": 382,
+            "width": 83,
+            "height": 128
+          },
+          "trimmed_pixels": 6634,
+          "method": "auto",
+          "width": 83,
+          "height": 128
+        },
+        {
+          "id": "likelion-object-010",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-010.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 568,
+            "y": 382,
+            "width": 83,
+            "height": 128
+          },
+          "trimmed_pixels": 6704,
+          "method": "auto",
+          "width": 83,
+          "height": 128
+        },
+        {
+          "id": "likelion-object-011",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-011.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 1153,
+            "y": 386,
+            "width": 181,
+            "height": 238
+          },
+          "trimmed_pixels": 32414,
+          "method": "auto",
+          "width": 181,
+          "height": 238
+        },
+        {
+          "id": "likelion-object-012",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-012.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 1342,
+            "y": 396,
+            "width": 301,
+            "height": 246
+          },
+          "trimmed_pixels": 60229,
+          "method": "auto",
+          "width": 301,
+          "height": 246
+        },
+        {
+          "id": "likelion-object-013",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-013.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 892,
+            "y": 508,
+            "width": 247,
+            "height": 157
+          },
+          "trimmed_pixels": 29354,
+          "method": "auto",
+          "width": 247,
+          "height": 157
+        },
+        {
+          "id": "likelion-object-014",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-014.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 599,
+            "y": 520,
+            "width": 288,
+            "height": 153
+          },
+          "trimmed_pixels": 34945,
+          "method": "auto",
+          "width": 288,
+          "height": 153
+        },
+        {
+          "id": "likelion-object-015",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-015.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 36,
+            "y": 530,
+            "width": 172,
+            "height": 132
+          },
+          "trimmed_pixels": 13965,
+          "method": "auto",
+          "width": 172,
+          "height": 132
+        },
+        {
+          "id": "likelion-object-016",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-016.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 214,
+            "y": 530,
+            "width": 158,
+            "height": 128
+          },
+          "trimmed_pixels": 12249,
+          "method": "auto",
+          "width": 158,
+          "height": 128
+        },
+        {
+          "id": "likelion-object-017",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-017.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 385,
+            "y": 534,
+            "width": 153,
+            "height": 127
+          },
+          "trimmed_pixels": 11730,
+          "method": "auto",
+          "width": 153,
+          "height": 127
+        },
+        {
+          "id": "likelion-object-018",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-018.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 1245,
+            "y": 654,
+            "width": 342,
+            "height": 243
+          },
+          "trimmed_pixels": 71004,
+          "method": "auto",
+          "width": 342,
+          "height": 243
+        },
+        {
+          "id": "likelion-object-019",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-019.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 25,
+            "y": 658,
+            "width": 202,
+            "height": 246
+          },
+          "trimmed_pixels": 23018,
+          "method": "auto",
+          "width": 202,
+          "height": 246
+        },
+        {
+          "id": "likelion-object-020",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-020.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 832,
+            "y": 674,
+            "width": 182,
+            "height": 232
+          },
+          "trimmed_pixels": 34403,
+          "method": "auto",
+          "width": 182,
+          "height": 232
+        },
+        {
+          "id": "likelion-object-021",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-021.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 601,
+            "y": 682,
+            "width": 222,
+            "height": 206
+          },
+          "trimmed_pixels": 35539,
+          "method": "auto",
+          "width": 222,
+          "height": 206
+        },
+        {
+          "id": "likelion-object-022",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-022.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 406,
+            "y": 685,
+            "width": 181,
+            "height": 203
+          },
+          "trimmed_pixels": 29163,
+          "method": "auto",
+          "width": 181,
+          "height": 203
+        },
+        {
+          "id": "likelion-object-023",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-023.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 1031,
+            "y": 686,
+            "width": 199,
+            "height": 201
+          },
+          "trimmed_pixels": 33261,
+          "method": "auto",
+          "width": 199,
+          "height": 201
+        },
+        {
+          "id": "likelion-object-024",
+          "pack": "likelion",
+          "file": "public/images/design-assets/objects/likelion/likelion-object-024.png",
+          "source": "public/images/design-assets/object-packs/likelion_objectpack.png",
+          "source_bbox": {
+            "x": 221,
+            "y": 746,
+            "width": 182,
+            "height": 118
+          },
+          "trimmed_pixels": 11892,
+          "method": "auto",
+          "width": 182,
+          "height": 118
+        }
+      ]
+    },
+    "pickfit": {
+      "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+      "count": 36,
+      "contact_sheet": "public/images/design-assets/objects/pickfit-contact-sheet.png",
+      "objects": [
+        {
+          "id": "pickfit-object-001",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-001.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 44,
+            "y": 28,
+            "width": 206,
+            "height": 320
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 206,
+          "height": 320
+        },
+        {
+          "id": "pickfit-object-002",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-002.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 276,
+            "y": 29,
+            "width": 278,
+            "height": 145
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 278,
+          "height": 145
+        },
+        {
+          "id": "pickfit-object-003",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-003.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 602,
+            "y": 34,
+            "width": 173,
+            "height": 364
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 173,
+          "height": 364
+        },
+        {
+          "id": "pickfit-object-004",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-004.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 810,
+            "y": 100,
+            "width": 132,
+            "height": 254
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 132,
+          "height": 254
+        },
+        {
+          "id": "pickfit-object-005",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-005.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 966,
+            "y": 54,
+            "width": 106,
+            "height": 206
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 106,
+          "height": 206
+        },
+        {
+          "id": "pickfit-object-006",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-006.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1076,
+            "y": 66,
+            "width": 101,
+            "height": 220
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 101,
+          "height": 220
+        },
+        {
+          "id": "pickfit-object-007",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-007.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1208,
+            "y": 38,
+            "width": 302,
+            "height": 160
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 302,
+          "height": 160
+        },
+        {
+          "id": "pickfit-object-008",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-008.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 138,
+            "y": 172,
+            "width": 204,
+            "height": 300
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 204,
+          "height": 300
+        },
+        {
+          "id": "pickfit-object-009",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-009.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 346,
+            "y": 170,
+            "width": 202,
+            "height": 260
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 202,
+          "height": 260
+        },
+        {
+          "id": "pickfit-object-010",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-010.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1164,
+            "y": 178,
+            "width": 294,
+            "height": 176
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 294,
+          "height": 176
+        },
+        {
+          "id": "pickfit-object-011",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-011.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 958,
+            "y": 318,
+            "width": 268,
+            "height": 192
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 268,
+          "height": 192
+        },
+        {
+          "id": "pickfit-object-012",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-012.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1256,
+            "y": 344,
+            "width": 120,
+            "height": 196
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 120,
+          "height": 196
+        },
+        {
+          "id": "pickfit-object-013",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-013.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1368,
+            "y": 354,
+            "width": 120,
+            "height": 230
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 120,
+          "height": 230
+        },
+        {
+          "id": "pickfit-object-014",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-014.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 30,
+            "y": 384,
+            "width": 104,
+            "height": 90
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 104,
+          "height": 90
+        },
+        {
+          "id": "pickfit-object-015",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-015.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 68,
+            "y": 444,
+            "width": 73,
+            "height": 62
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 73,
+          "height": 62
+        },
+        {
+          "id": "pickfit-object-016",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-016.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 31,
+            "y": 525,
+            "width": 149,
+            "height": 59
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 149,
+          "height": 59
+        },
+        {
+          "id": "pickfit-object-017",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-017.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 194,
+            "y": 524,
+            "width": 156,
+            "height": 64
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 156,
+          "height": 64
+        },
+        {
+          "id": "pickfit-object-018",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-018.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 30,
+            "y": 606,
+            "width": 152,
+            "height": 70
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 152,
+          "height": 70
+        },
+        {
+          "id": "pickfit-object-019",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-019.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 194,
+            "y": 608,
+            "width": 156,
+            "height": 68
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 156,
+          "height": 68
+        },
+        {
+          "id": "pickfit-object-020",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-020.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 30,
+            "y": 705,
+            "width": 70,
+            "height": 65
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 70,
+          "height": 65
+        },
+        {
+          "id": "pickfit-object-021",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-021.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 112,
+            "y": 704,
+            "width": 70,
+            "height": 68
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 70,
+          "height": 68
+        },
+        {
+          "id": "pickfit-object-022",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-022.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 194,
+            "y": 705,
+            "width": 76,
+            "height": 69
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 76,
+          "height": 69
+        },
+        {
+          "id": "pickfit-object-023",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-023.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 286,
+            "y": 706,
+            "width": 68,
+            "height": 66
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 68,
+          "height": 66
+        },
+        {
+          "id": "pickfit-object-024",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-024.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 372,
+            "y": 466,
+            "width": 232,
+            "height": 278
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 232,
+          "height": 278
+        },
+        {
+          "id": "pickfit-object-025",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-025.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 622,
+            "y": 466,
+            "width": 178,
+            "height": 288
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 178,
+          "height": 288
+        },
+        {
+          "id": "pickfit-object-026",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-026.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 812,
+            "y": 452,
+            "width": 190,
+            "height": 94
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 190,
+          "height": 94
+        },
+        {
+          "id": "pickfit-object-027",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-027.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 812,
+            "y": 548,
+            "width": 190,
+            "height": 100
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 190,
+          "height": 100
+        },
+        {
+          "id": "pickfit-object-028",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-028.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 807,
+            "y": 666,
+            "width": 191,
+            "height": 82
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 191,
+          "height": 82
+        },
+        {
+          "id": "pickfit-object-029",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-029.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1016,
+            "y": 532,
+            "width": 146,
+            "height": 216
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 146,
+          "height": 216
+        },
+        {
+          "id": "pickfit-object-030",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-030.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1198,
+            "y": 580,
+            "width": 196,
+            "height": 170
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 196,
+          "height": 170
+        },
+        {
+          "id": "pickfit-object-031",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-031.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 50,
+            "y": 796,
+            "width": 112,
+            "height": 168
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 112,
+          "height": 168
+        },
+        {
+          "id": "pickfit-object-032",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-032.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 188,
+            "y": 821,
+            "width": 150,
+            "height": 153
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 150,
+          "height": 153
+        },
+        {
+          "id": "pickfit-object-033",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-033.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 360,
+            "y": 774,
+            "width": 140,
+            "height": 192
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 140,
+          "height": 192
+        },
+        {
+          "id": "pickfit-object-034",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-034.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 524,
+            "y": 818,
+            "width": 134,
+            "height": 158
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 134,
+          "height": 158
+        },
+        {
+          "id": "pickfit-object-035",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-035.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 716,
+            "y": 782,
+            "width": 368,
+            "height": 188
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 368,
+          "height": 188
+        },
+        {
+          "id": "pickfit-object-036",
+          "pack": "pickfit",
+          "file": "public/images/design-assets/objects/pickfit/pickfit-object-036.png",
+          "source": "public/images/design-assets/object-packs/pickfit_objectpack.png",
+          "source_bbox": {
+            "x": 1124,
+            "y": 786,
+            "width": 368,
+            "height": 180
+          },
+          "trimmed_pixels": null,
+          "method": "manual",
+          "width": 368,
+          "height": 180
+        }
+      ]
+    },
+    "pulse": {
+      "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+      "count": 21,
+      "contact_sheet": "public/images/design-assets/objects/pulse-contact-sheet.png",
+      "objects": [
+        {
+          "id": "pulse-object-001",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-001.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1070,
+            "y": 27,
+            "width": 218,
+            "height": 236
+          },
+          "trimmed_pixels": 24517,
+          "method": "auto",
+          "width": 218,
+          "height": 236
+        },
+        {
+          "id": "pulse-object-002",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-002.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 22,
+            "y": 30,
+            "width": 359,
+            "height": 227
+          },
+          "trimmed_pixels": 53157,
+          "method": "auto",
+          "width": 359,
+          "height": 227
+        },
+        {
+          "id": "pulse-object-003",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-003.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 412,
+            "y": 34,
+            "width": 302,
+            "height": 262
+          },
+          "trimmed_pixels": 65774,
+          "method": "auto",
+          "width": 302,
+          "height": 262
+        },
+        {
+          "id": "pulse-object-004",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-004.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1283,
+            "y": 49,
+            "width": 62,
+            "height": 59
+          },
+          "trimmed_pixels": 747,
+          "method": "auto",
+          "width": 62,
+          "height": 59
+        },
+        {
+          "id": "pulse-object-005",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-005.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 736,
+            "y": 67,
+            "width": 317,
+            "height": 226
+          },
+          "trimmed_pixels": 58844,
+          "method": "auto",
+          "width": 317,
+          "height": 226
+        },
+        {
+          "id": "pulse-object-006",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-006.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1291,
+            "y": 101,
+            "width": 64,
+            "height": 37
+          },
+          "trimmed_pixels": 697,
+          "method": "auto",
+          "width": 64,
+          "height": 37
+        },
+        {
+          "id": "pulse-object-007",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-007.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1291,
+            "y": 140,
+            "width": 63,
+            "height": 50
+          },
+          "trimmed_pixels": 702,
+          "method": "auto",
+          "width": 63,
+          "height": 50
+        },
+        {
+          "id": "pulse-object-008",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-008.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1259,
+            "y": 237,
+            "width": 250,
+            "height": 283
+          },
+          "trimmed_pixels": 36970,
+          "method": "auto",
+          "width": 250,
+          "height": 283
+        },
+        {
+          "id": "pulse-object-009",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-009.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 66,
+            "y": 256,
+            "width": 310,
+            "height": 195
+          },
+          "trimmed_pixels": 38848,
+          "method": "auto",
+          "width": 310,
+          "height": 195
+        },
+        {
+          "id": "pulse-object-010",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-010.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 969,
+            "y": 305,
+            "width": 265,
+            "height": 381
+          },
+          "trimmed_pixels": 88748,
+          "method": "auto",
+          "width": 265,
+          "height": 381
+        },
+        {
+          "id": "pulse-object-011",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-011.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 725,
+            "y": 325,
+            "width": 209,
+            "height": 277
+          },
+          "trimmed_pixels": 49061,
+          "method": "auto",
+          "width": 209,
+          "height": 277
+        },
+        {
+          "id": "pulse-object-012",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-012.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 396,
+            "y": 334,
+            "width": 313,
+            "height": 253
+          },
+          "trimmed_pixels": 67843,
+          "method": "auto",
+          "width": 313,
+          "height": 253
+        },
+        {
+          "id": "pulse-object-013",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-013.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 168,
+            "y": 429,
+            "width": 180,
+            "height": 149
+          },
+          "trimmed_pixels": 16605,
+          "method": "auto",
+          "width": 180,
+          "height": 149
+        },
+        {
+          "id": "pulse-object-014",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-014.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1292,
+            "y": 542,
+            "width": 140,
+            "height": 197
+          },
+          "trimmed_pixels": 14726,
+          "method": "auto",
+          "width": 140,
+          "height": 197
+        },
+        {
+          "id": "pulse-object-015",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-015.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 32,
+            "y": 580,
+            "width": 284,
+            "height": 226
+          },
+          "trimmed_pixels": 48646,
+          "method": "auto",
+          "width": 284,
+          "height": 226
+        },
+        {
+          "id": "pulse-object-016",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-016.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 351,
+            "y": 618,
+            "width": 361,
+            "height": 154
+          },
+          "trimmed_pixels": 45045,
+          "method": "auto",
+          "width": 361,
+          "height": 154
+        },
+        {
+          "id": "pulse-object-017",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-017.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1056,
+            "y": 744,
+            "width": 197,
+            "height": 242
+          },
+          "trimmed_pixels": 37787,
+          "method": "auto",
+          "width": 197,
+          "height": 242
+        },
+        {
+          "id": "pulse-object-018",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-018.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 1262,
+            "y": 746,
+            "width": 224,
+            "height": 250
+          },
+          "trimmed_pixels": 44430,
+          "method": "auto",
+          "width": 224,
+          "height": 250
+        },
+        {
+          "id": "pulse-object-019",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-019.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 867,
+            "y": 758,
+            "width": 178,
+            "height": 223
+          },
+          "trimmed_pixels": 33025,
+          "method": "auto",
+          "width": 178,
+          "height": 223
+        },
+        {
+          "id": "pulse-object-020",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-020.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 503,
+            "y": 789,
+            "width": 328,
+            "height": 193
+          },
+          "trimmed_pixels": 50988,
+          "method": "auto",
+          "width": 328,
+          "height": 193
+        },
+        {
+          "id": "pulse-object-021",
+          "pack": "pulse",
+          "file": "public/images/design-assets/objects/pulse/pulse-object-021.png",
+          "source": "public/images/design-assets/object-packs/pulse_objectpack.png",
+          "source_bbox": {
+            "x": 87,
+            "y": 823,
+            "width": 392,
+            "height": 153
+          },
+          "trimmed_pixels": 48734,
+          "method": "auto",
+          "width": 392,
+          "height": 153
+        }
+      ]
+    }
+  }
+}

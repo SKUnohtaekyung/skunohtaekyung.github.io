@@ -1,0 +1,100 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import "tailwindcss";
+
+/* ── 디자인 토큰 (design-system 컬러 + design-direction §0.1) ───────────────
+   Tailwind v4 @theme → bg- · text- · font- · ease- 유틸리티로 노출 */
+@theme {
+  --color-base: #F8FAFC;
+  --color-panel: #FFFFFF;       /* --bg-panel */
+  --color-soft: #F1F5F9;        /* --bg-soft */
+  --color-ink: #0F172A;          /* --text-main */
+  --color-text-sub: #475569;
+  --color-text-muted: #64748B;
+  --color-text-faint: #94A3B8;
+  --color-line: #E2E8F0;
+  --color-line-strong: #CBD5E1;
+
+  /* 프로젝트 시그니처 액센트 (PickFit 라임은 채움/톤 전용 — 텍스트엔 pickfit-ink) */
+  --color-pulse: #002B7A;
+  --color-pickfit: #E3FF5D;
+  --color-pickfit-ink: #4D5EFF;
+  --color-likelion: #0060C6;
+  --color-likelion-ink: #0060C6;
+  --color-likelion-sub: #5BA3FF;
+  --color-likelion-orange: #FF6000;
+
+  /* 연락처 브랜드색 (design-direction §7) */
+  --color-github: #6E5494;
+  --color-github-bright: #9D82C4; /* 다크 배경 호버용 — #6E5494는 #0A0A0A 위 3.3:1 미달, 밝힌 동일 색상군 6.1:1 */
+  --color-velog: #20C997;
+
+  --font-display: "Arial Narrow", "Helvetica Neue", system-ui, sans-serif;
+  --font-body: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+
+  /* 타입 스케일 (design-system §8.5) → text-hero 등 유틸리티 */
+  --text-hero: clamp(64px, 10vw, 156px);
+  --text-room-title: clamp(56px, 9vw, 132px);
+  --text-h1: clamp(44px, 6vw, 88px);
+  --text-h2: clamp(34px, 4.5vw, 64px);
+  --text-h3: 28px;
+  --text-body-lg: 20px;
+
+  /* 모션 이징 (design-system §16.2 / design-direction §6) */
+  --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-paper: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-room: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-flip: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 레이아웃·모션·프레임 토큰 (유틸리티 불필요 — GSAP/inline 참조용, design-system §9·§16) */
+:root {
+  --motion-fast: 160ms;
+  --motion-base: 280ms;
+  --motion-slow: 600ms;
+  --motion-room: 900ms;
+  --motion-room-long: 1200ms;
+
+  --container-max: 1200px;
+  --section-padding-y: clamp(96px, 12vw, 180px);
+  --section-padding-x: clamp(20px, 5vw, 80px);
+
+  --room-min-height: 100svh;
+  --room-padding-x: clamp(24px, 6vw, 96px);
+  --room-padding-y: clamp(80px, 10vw, 140px);
+  --room-padding-y-tight: clamp(48px, 6vw, 88px);
+
+  --frame-radius: 24px;
+  --frame-border: 1px solid rgba(15, 23, 42, 0.08);
+  --shadow-frame: 0 24px 60px rgba(15, 23, 42, 0.10);
+  --shadow-soft: 0 12px 40px rgba(15, 23, 42, 0.08);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-base);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  letter-spacing: -0.02em; /* Pretendard 전역 자간 (design-system §8.5) */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 컨테이너 가로 패딩 — design-system §9.1 --section-padding-x (P7 토큰 통일) */
+.container-pad {
+  padding-inline: var(--section-padding-x);
+}
+
+/* 키보드 포커스 가시성 (a11y) — 밝은/어두운 배경 모두 대응 */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* 가드레일: reduced-motion 필수 (design-direction §8) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "_comment": "폰트 카탈로그. 보유 폰트는 ITC Avant Garde Gothic(영문 디스플레이 전용). 한글 본문(Pretendard)·라벨(JetBrains Mono)은 폴더에 없고 웹폰트로 로드. path는 포트폴리오 루트 기준 상대경로.",
+  "generated": "2026-06-09",
+  "system": {
+    "display_en": "ITC Avant Garde Gothic — 영문 디스플레이 전용(Hero 헤드라인/Room Title/큰 CTA). 본문/긴 설명/한글에는 쓰지 않음 (design-system.md §8.2).",
+    "body_kr": "Pretendard Variable — 한글 제목·본문·UI. 폴더에 없음 → 웹폰트(CDN/self-host) 사용.",
+    "label_mono": "JetBrains Mono — 라벨·메타·Role·Tech Stack 등 짧은 시스템 텍스트. 폴더에 없음 → Google Fonts.",
+    "license_note": "ITC Avant Garde 웹 배포(@font-face) 라이선스 확인 필요 (work-log §8.2, design-system §8.2 주의)."
+  },
+  "preview": { "path": "ITC Avant Garde/★ 폰트 프리뷰.jpg", "type": "preview_image", "desc": "보유 Avant Garde 폰트 전체 프리뷰 이미지" },
+  "recommended_for_web": [
+    "ITC Avant Garde Gothic LT Extra Light", "ITC Avant Garde Gothic LT Book",
+    "ITC Avant Garde Gothic LT Medium", "ITC Avant Garde Gothic LT Demi", "ITC Avant Garde Gothic LT Bold"
+  ],
+  "recommended_note": "웹 디스플레이는 'LT Gothic' 세트(Extra Light~Bold)를 표준 패밀리로 사용 권장. BT/CE/Condensed/Extreme Lefty는 대체·특수용.",
+  "files": [
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Extra Light.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 200, "style": "normal", "variant": "standard", "recommended": true },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Extra Light Oblique.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 200, "style": "italic", "variant": "standard", "recommended": false },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Book.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 400, "style": "normal", "variant": "standard", "recommended": true },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Book Oblique.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 400, "style": "italic", "variant": "standard", "recommended": false },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Medium.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 500, "style": "normal", "variant": "standard", "recommended": true },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Demi.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 600, "style": "normal", "variant": "standard", "recommended": true },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Bold.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 700, "style": "normal", "variant": "standard", "recommended": true },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Bold Oblique.ttf", "family": "ITC Avant Garde Gothic LT", "weight": 700, "style": "italic", "variant": "standard", "recommended": false },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Condensed Book.ttf", "family": "ITC Avant Garde Gothic LT Condensed", "weight": 400, "style": "normal", "variant": "condensed", "recommended": false },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Condensed Medium.ttf", "family": "ITC Avant Garde Gothic LT Condensed", "weight": 500, "style": "normal", "variant": "condensed", "recommended": false },
+    { "path": "ITC Avant Garde/ITC Avant Garde Gothic LT Condensed Bold.ttf", "family": "ITC Avant Garde Gothic LT Condensed", "weight": 700, "style": "normal", "variant": "condensed", "recommended": false },
+    { "path": "ITC Avant Garde/ITC Avant Garde CE Gothic Book.ttf", "family": "ITC Avant Garde CE Gothic", "weight": 400, "style": "normal", "variant": "central-european", "recommended": false },
+    { "path": "ITC Avant Garde/ITC Avant Garde CE Gothic Demi.ttf", "family": "ITC Avant Garde CE Gothic", "weight": 600, "style": "normal", "variant": "central-european", "recommended": false },
+    { "path": "ITC Avant Garde/Avant Garde Book BT.ttf", "family": "Avant Garde BT", "weight": 400, "style": "normal", "variant": "bitstream-alt", "recommended": false },
+    { "path": "ITC Avant Garde/Avant Garde Book Oblique BT.ttf", "family": "Avant Garde BT", "weight": 400, "style": "italic", "variant": "bitstream-alt", "recommended": false },
+    { "path": "ITC Avant Garde/Avant Garde Medium BT.ttf", "family": "Avant Garde BT", "weight": 500, "style": "normal", "variant": "bitstream-alt", "recommended": false },
+    { "path": "ITC Avant Garde/Avant Garde Medium Oblique BT.ttf", "family": "Avant Garde BT", "weight": 500, "style": "italic", "variant": "bitstream-alt", "recommended": false },
+    { "path": "ITC Avant Garde/Avant Garde Demi BT.ttf", "family": "Avant Garde BT", "weight": 600, "style": "normal", "variant": "bitstream-alt", "recommended": false },
+    { "path": "ITC Avant Garde/Avant Garde Demi Oblique BT.ttf", "family": "Avant Garde BT", "weight": 600, "style": "italic", "variant": "bitstream-alt", "recommended": false },
+    { "path": "ITC Avant Garde/Avant Garde Demi Extreme Lefty.ttf", "family": "Avant Garde Demi Extreme Lefty", "weight": 600, "style": "normal", "variant": "decorative-special", "recommended": false, "note": "특수 변형(장식용) — 일반 디스플레이엔 비권장" }
+  ]
+}
