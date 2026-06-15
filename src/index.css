@@ -28,7 +28,7 @@
   --color-github-bright: #9D82C4; /* 다크 배경 호버용 — #6E5494는 #0A0A0A 위 3.3:1 미달, 밝힌 동일 색상군 6.1:1 */
   --color-velog: #20C997;
 
-  --font-display: "Arial Narrow", "Helvetica Neue", system-ui, sans-serif;
+  --font-display: "ITC Avant Garde Gothic", "Arial Narrow", "Helvetica Neue", system-ui, sans-serif;
   --font-body: "Pretendard Variable", Pretendard, system-ui, sans-serif;
 
   /* 타입 스케일 (design-system §8.5) → text-hero 등 유틸리티 */
@@ -67,6 +67,41 @@
   --frame-border: 1px solid rgba(15, 23, 42, 0.08);
   --shadow-frame: 0 24px 60px rgba(15, 23, 42, 0.10);
   --shadow-soft: 0 12px 40px rgba(15, 23, 42, 0.08);
+}
+
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url("/fonts/AvantGardeGothic-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url("/fonts/AvantGardeGothic-Book.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url("/fonts/AvantGardeGothic-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url("/fonts/AvantGardeGothic-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ITC Avant Garde Gothic";
+  src: url("/fonts/AvantGardeGothic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
 }
 
 html, body { height: 100%; }

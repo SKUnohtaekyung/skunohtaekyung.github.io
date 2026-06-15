@@ -1,0 +1,131 @@
+{
+  "source": "C:\\Users\\miso\\Desktop\\포트폴리오\\이미지_생성결과\\hero_selfportrait_16x9_v1_clean.png",
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "layers": [
+    {
+      "name": "hero_base_offwhite",
+      "file": "hero_base_offwhite.png",
+      "x": 0,
+      "y": 0,
+      "width": 1672,
+      "height": 941,
+      "parallax": 0
+    },
+    {
+      "name": "person_seated",
+      "file": "person_seated.png",
+      "x": 730,
+      "y": 175,
+      "width": 650,
+      "height": 760
+    },
+    {
+      "name": "laptop_right",
+      "file": "laptop_right.png",
+      "x": 1180,
+      "y": 520,
+      "width": 370,
+      "height": 205
+    },
+    {
+      "name": "code_panel_right",
+      "file": "code_panel_right.png",
+      "x": 1328,
+      "y": 278,
+      "width": 302,
+      "height": 260
+    },
+    {
+      "name": "top_blank_frame",
+      "file": "top_blank_frame.png",
+      "x": 1162,
+      "y": 8,
+      "width": 382,
+      "height": 200
+    },
+    {
+      "name": "top_wireframe_card",
+      "file": "top_wireframe_card.png",
+      "x": 948,
+      "y": 72,
+      "width": 220,
+      "height": 125
+    },
+    {
+      "name": "top_chart_card",
+      "file": "top_chart_card.png",
+      "x": 684,
+      "y": 82,
+      "width": 260,
+      "height": 220
+    },
+    {
+      "name": "cursor_arrow",
+      "file": "cursor_arrow.png",
+      "x": 925,
+      "y": 246,
+      "width": 115,
+      "height": 130
+    },
+    {
+      "name": "middle_flow_card",
+      "file": "middle_flow_card.png",
+      "x": 701,
+      "y": 285,
+      "width": 240,
+      "height": 118
+    },
+    {
+      "name": "orange_blue_notes",
+      "file": "orange_blue_notes.png",
+      "x": 638,
+      "y": 420,
+      "width": 160,
+      "height": 150
+    },
+    {
+      "name": "bottom_chart_strip",
+      "file": "bottom_chart_strip.png",
+      "x": 596,
+      "y": 600,
+      "width": 330,
+      "height": 300
+    },
+    {
+      "name": "bottom_image_card",
+      "file": "bottom_image_card.png",
+      "x": 348,
+      "y": 730,
+      "width": 300,
+      "height": 170
+    },
+    {
+      "name": "bottom_info_card",
+      "file": "bottom_info_card.png",
+      "x": 1208,
+      "y": 765,
+      "width": 250,
+      "height": 155
+    },
+    {
+      "name": "right_diagram_card",
+      "file": "right_diagram_card.png",
+      "x": 1484,
+      "y": 732,
+      "width": 188,
+      "height": 208
+    },
+    {
+      "name": "person_isolated",
+      "file": "person_isolated.png",
+      "x": 840,
+      "y": 180,
+      "width": 1672,
+      "height": 941,
+      "recommendedUse": "Cleaner replacement for person_seated when building a true separated hero composition."
+    }
+  ]
+}
