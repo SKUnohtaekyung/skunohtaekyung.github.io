@@ -60,12 +60,13 @@ export default function ProjectRoom() {
         ease: EASE_DEFAULT,
         stagger: 0.06,
       })
-      gsap.from('[data-room-objectpack]', {
-        x: 40,
+      gsap.from('[data-room-object]', {
+        x: 30,
         opacity: 0,
         duration: 0.8,
-        delay: 0.4,
+        delay: 0.35,
         ease: EASE_DEFAULT,
+        stagger: 0.10,
       })
     }, root)
     return () => ctx.revert()
@@ -145,18 +146,27 @@ export default function ProjectRoom() {
           style={{ background: project.tone, opacity: room.bgImage ? 0.75 : 1 }}
           aria-hidden
         />
-        {/* 오브젝트팩 — 우측 플로팅 장식 */}
-        {room.objectPack && (
+        {/* 오브젝트 — 우측 개별 산포 장식 */}
+        {room.roomObjects && room.roomObjects.map((obj, i) => (
           <img
-            src={room.objectPack}
+            key={i}
+            src={obj.src}
             alt=""
             aria-hidden
-            data-room-objectpack
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 pointer-events-none select-none hidden md:block"
-            style={{ opacity: 0.3 }}
+            data-room-object
+            className="absolute pointer-events-none select-none hidden md:block"
+            style={{
+              width: obj.width,
+              opacity: obj.opacity,
+              top: obj.top,
+              bottom: obj.bottom,
+              left: obj.left,
+              right: obj.right,
+              transform: `rotate(${obj.rotate}deg)`,
+            }}
             loading="eager"
           />
-        )}
+        ))}
 
         {/* 콘텐츠 레이어 */}
         <div className="relative z-10">
@@ -173,6 +183,11 @@ export default function ProjectRoom() {
           <p data-room-fade className="font-body text-text-sub text-[16px] leading-[1.7] mt-6 max-w-[58ch]">
             {room.entranceLine}
           </p>
+          {room.entranceDetail && (
+            <p data-room-fade className="font-body text-text-muted text-[14px] leading-[1.75] mt-3 max-w-[54ch]">
+              {room.entranceDetail}
+            </p>
+          )}
           <p data-room-fade className="font-body font-medium text-text-muted text-[12.5px] mt-3">{project.role}</p>
           <ul data-room-fade className="mt-6 flex flex-wrap gap-2" aria-label={`${project.name} 핵심 증거`}>
             {project.proofChips.map((chip) => (
@@ -205,6 +220,31 @@ export default function ProjectRoom() {
           </div>
         </div>
       </section>
+
+      {/* ── 콘텐츠 영역 래퍼: relative + 마진 사이드 오브젝트 레이어 ── */}
+      <div className="relative">
+        {room.contentObjects && (
+          <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block" style={{ zIndex: 0 }}>
+            {room.contentObjects.map((obj, i) => (
+              <img
+                key={i}
+                src={obj.src}
+                alt=""
+                aria-hidden
+                style={{
+                  position: 'absolute',
+                  width: obj.width,
+                  opacity: obj.opacity,
+                  top: obj.top,
+                  bottom: obj.bottom,
+                  left: obj.left,
+                  right: obj.right,
+                  transform: `rotate(${obj.rotate}deg)`,
+                }}
+              />
+            ))}
+          </div>
+        )}
 
       {/* MainWall — 대표 화면 액자 + 프레임 분위기 레이어 (짧은 패딩, 한 화면 점유 해소) */}
       <section id="mainwall" aria-label="대표 화면" style={roomPadTight} className="relative overflow-hidden">
@@ -331,6 +371,11 @@ export default function ProjectRoom() {
                   >
                     {group.label}
                   </h2>
+                  {group.desc && (
+                    <p className="font-body text-text-sub text-[14.5px] leading-[1.72] mt-3 max-w-[72ch]">
+                      {group.desc}
+                    </p>
+                  )}
                 </Reveal>
               )}
               <div className={`${evidenceGridClass} ${group.label ? 'mt-8' : ''}`}>
@@ -505,6 +550,7 @@ export default function ProjectRoom() {
           </button>
         </div>
       </section>
+      </div>{/* ── 콘텐츠 래퍼 끝 ── */}
     </main>
   )
 }

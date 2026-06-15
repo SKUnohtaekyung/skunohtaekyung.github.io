@@ -6,6 +6,7 @@ import { labelEnClass } from '../Label'
 import Wordmark from '../Wordmark'
 import { EASE_DEFAULT, prefersReducedMotion } from '../../lib/motion'
 import HeroVisual from './HeroVisual'
+import FloatingObject from '../FloatingObject'
 
 export default function Hero() {
   const root = useRef<HTMLElement>(null)
@@ -27,8 +28,42 @@ export default function Hero() {
       ref={root}
       id="hero"
       aria-label="소개"
-      className="min-h-[100dvh] flex flex-col justify-center overflow-hidden"
+      className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden"
     >
+      {/* ── 종이 콜라주 오브젝트 ─────────────────────────────────────────────
+          Tier A: 좌하단 큰 종이 조각 — 책상 위 자료 느낌
+          Tier B: 우상단 세로형 종이 — 정렬 전 문서
+          Tier C: 우측 영역 소형 원점 — 데이터 포인트 질감
+          ─────────────────────────────────────────────────────────────────── */}
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-001.png"
+        width={210} opacity={0.62} rotate={-14}
+        bottom="-3%" left="-2%"
+        tier="A" floatDuration={7} floatDelay={0.8}
+        revealDelay={500}
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-021.png"
+        width={138} opacity={0.46} rotate={9}
+        top="10%" right="-3%"
+        tier="B" revealDelay={700}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-008.png"
+        width={42} opacity={0.20} rotate={0}
+        top="15%" right="10%"
+        tier="C" revealDelay={900}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-011.png"
+        width={185} opacity={0.24} rotate={-3}
+        top="46%" left="-3%"
+        tier="B" revealDelay={1100}
+        hideOnMobile
+      />
+
       <div className="mx-auto w-full max-w-[1280px] container-pad py-24 grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr]">
         <div>
           <div data-hero-line>

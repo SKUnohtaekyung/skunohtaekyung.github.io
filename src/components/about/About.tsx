@@ -7,12 +7,47 @@ import { type ReactNode } from 'react'
 import { PRINCIPLES, PROFILE, TIMELINE, type Principle, type TimelineGroup, type TimelineItem } from '../../data/about'
 import { scrollToId } from '../../lib/lenis'
 import Label, { labelEnClass as labelEn } from '../Label'
+import FloatingObject from '../FloatingObject'
 
 const aboutPad = { paddingBlock: 'clamp(72px, 8vw, 120px)' }
 
 export default function About() {
   return (
-    <section id="about" aria-label="소개" className="border-t border-line">
+    <section id="about" aria-label="소개" className="relative overflow-hidden border-t border-line">
+      {/* ── 종이 콜라주 오브젝트 ─────────────────────────────────────────────
+          Tier A: 우상단 정사각형 종이 — "나에 관한 페이지" 감각
+          Tier B: 좌하단 라임 수평 테이프 — 에너지 포인트
+          Tier C: 좌측 L자 코너 브라켓 — 편집지 '선택됨' 마커
+          ─────────────────────────────────────────────────────────────────── */}
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-022.png"
+        width={178} opacity={0.40} rotate={16}
+        top="2%" right="1%"
+        tier="A" floatDuration={8} floatDelay={1.2}
+        revealDelay={200}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-010.png"
+        width={215} opacity={0.33} rotate={-7}
+        bottom="15%" left="-1%"
+        tier="B" revealDelay={400}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-034.png"
+        width={68} opacity={0.17} rotate={0}
+        top="52%" left="1%"
+        tier="C" revealDelay={600}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-006.png"
+        width={46} opacity={0.20} rotate={0}
+        bottom="8%" right="20%"
+        tier="C" revealDelay={750}
+        hideOnMobile
+      />
       <div className="mx-auto max-w-[1200px] container-pad" style={aboutPad}>
         <Label as="p">About</Label>
         <Headline />

@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 import { VELOG_URL } from '../../data/writing'
 import { EASE_DEFAULT, EASE_ROOM, prefersReducedMotion } from '../../lib/motion'
+import FloatingObject from '../FloatingObject'
 
 const GITHUB_URL = 'https://github.com/SKUnohtaekyung'
 const EMAIL = 'ntk9477@naver.com'
@@ -103,6 +104,24 @@ export default function Finale() {
       <div ref={black} aria-hidden className="absolute inset-0 bg-[#0A0A0A]" />
 
       <div className="relative">
+        {/* Ghost 종이 — #0A0A0A 배경 위 희미한 백색 잔영 (opacity 극소)
+            어두운 공간을 유영하는 종이 조각 = "아직 쓰이지 않은 가능성" */}
+        <FloatingObject
+          src="/images/design-assets/objects/common/common-object-001.png"
+          width={195} opacity={0.06} rotate={-10}
+          bottom="12%" right="4%"
+          tier="A" floatDuration={12} floatDelay={3}
+          revealDelay={800}
+          hideOnMobile
+        />
+        <FloatingObject
+          src="/images/design-assets/objects/common/common-object-046.png"
+          width={38} opacity={0.05} rotate={5}
+          top="30%" left="6%"
+          tier="C" revealDelay={1200}
+          hideOnMobile
+        />
+
         <section aria-label="후킹" className="mx-auto max-w-[1200px] container-pad pt-24 pb-16">
           <h2
             data-finale-fade

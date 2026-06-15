@@ -125,6 +125,17 @@ body {
   outline-offset: 3px;
 }
 
+/* 종이 콜라주 Tier A 부유 애니메이션 — FloatingObject.tsx .tk-float
+   reduced-motion 전역 animation-duration:.01ms 에 의해 자동 중단되므로 별도 override 불필요 */
+@keyframes tk-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(calc(var(--float-amp, 8) * -1px)); }
+}
+
+.tk-float {
+  animation: tk-float var(--float-dur, 6s) var(--float-delay, 0s) ease-in-out infinite;
+}
+
 /* 가드레일: reduced-motion 필수 (design-direction §8) */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

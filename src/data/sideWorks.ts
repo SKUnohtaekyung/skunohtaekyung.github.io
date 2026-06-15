@@ -48,10 +48,10 @@ export const SIDE_WORKS: SideWork[] = [
     approach:
       'Creator Flow와 User Flow를 나눠 창작자의 몰입과 관람자의 이동 흐름을 함께 해석했습니다. Flow 이론의 명확한 목표, 즉각적 피드백, 도전과 기술의 균형을 전시 경험의 리듬으로 번역했습니다.',
     process:
-      '학과 조교로 1년 반 동안 전시 운영과 학과 커뮤니케이션을 가까이 보며, 전시가 단순 결과물 진열이 아니라 창작자와 관람자가 만나는 흐름이라는 관점을 잡았습니다.',
+      '학과 조교로 1년 반 동안 전시 운영과 학과 커뮤니케이션을 가까이 보며, 전시를 창작자와 관람자가 만나는 흐름으로 보는 관점을 잡았습니다.',
     output: '컨셉 보드, 포스터·배너 키비주얼, 전시 공간 연출 방향을 정리했습니다.',
     learning:
-      '좋은 비주얼은 장식이 아니라, 관람자가 주제를 따라가게 만드는 경험의 리듬을 설계하는 일이라는 걸 알게 됐습니다.',
+      '시각 작업을 단순한 꾸미기로 생각했는데, 관람자가 주제를 따라가게 만드는 경험의 리듬을 잡는 일에 더 가깝다고 느꼈습니다.',
     backgroundImage: {
       src: '/images/design-assets/rooms/flow_wall.png',
       alt: 'FLOW 전시 공간에 파란 리본 그래픽과 포스터가 배치된 갤러리 이미지',
@@ -83,16 +83,16 @@ export const SIDE_WORKS: SideWork[] = [
     period: '개인 실험 · PM 지식 구조화',
     motif: 'Obsidian graph view / backlinks / internal links',
     oneLine:
-      'Obsidian의 연결형 노트와 그래프 뷰를 모티브로, PM 지식을 읽는 자료가 아니라 탐색 가능한 지식 지도로 만들었습니다.',
+      'Obsidian의 연결형 노트와 그래프 뷰를 모티브로, PM 지식을 탐색 가능한 지식 지도로 만들었습니다.',
     chips: ['Obsidian Motif', 'Knowledge Graph', '3D Interaction', 'PM Learning'],
     question: 'PM 개념 사이의 관계를 어떻게 한눈에 탐색하게 만들까?',
     approach:
-      'Obsidian처럼 개념을 독립된 글이 아니라 서로 연결된 지식 단위로 보고, PM 역할·Product/Project 차이·Business/Tech 관계를 노드와 챕터 구조로 연결했습니다.',
+      'Obsidian처럼 개념을 서로 연결된 지식 단위로 보고, PM 역할·Product/Project 차이·Business/Tech 관계를 노드와 챕터 구조로 연결했습니다.',
     process:
       'Internal links, backlinks, graph view에서 얻은 아이디어를 바탕으로 지식의 전체 지도와 현재 개념의 주변 맥락을 함께 보여주는 방향으로 구성했습니다.',
     output: '3D 노드 그래프, PM 세계관 상세 화면, GitHub 공개 산출물을 남겼습니다.',
     learning:
-      '지식을 많이 아는 것과 탐색 가능한 구조로 바꾸는 것은 다르며, 지식 구조화도 UX 설계의 일부라는 것을 배웠습니다.',
+      '많이 아는 것과 그 지식을 남이 탐색할 수 있게 정리하는 것은 전혀 다른 일이었습니다. 지식을 구조화하는 것 역시 UX 설계의 한 갈래였습니다.',
     backgroundImage: {
       src: '/images/design-assets/rooms/aboutpm_graphroom.png',
       alt: '어두운 공간 안에서 PM 역할 관계를 3D 그래프로 시각화한 AboutPM 그래프 룸',

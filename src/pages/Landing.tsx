@@ -1,8 +1,8 @@
 // 랜딩 — 7섹션 골격 (P1). Hero 모션(P3)·시그니처 전환(P4)·낙서/피날레 연출(P6)은 이후 페이즈.
 // 가드레일(§8): 박스 남용 금지(border-t 구분), 라임 텍스트 금지, min-h-[100dvh].
 // 타이포 경계: Avant Garde는 영문 디스플레이 전용(§0.1-6) — 한글 헤드라인·프레이밍은 Pretendard.
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useRef, useState, useEffect, Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
 import About from '../components/about/About'
 import Doodle from '../components/Doodle'
@@ -15,9 +15,32 @@ import { SIDE_WORKS, type SideWork, type SideWorkImage } from '../data/sideWorks
 import { FEATURED_WRITING, VELOG_PROFILE, VELOG_URL, WRITING, WRITING_AXES, type Post } from '../data/writing'
 import { scrollToId } from '../lib/lenis'
 import { enterRoom } from '../lib/signature'
+import FloatingObject from '../components/FloatingObject'
 
 /* 섹션 수직 리듬 — design-system §9.1 --section-padding-y */
 const sectionPad = { paddingBlock: 'clamp(96px, 12vw, 180px)' }
+
+/* SelectedBlock 프로젝트별 오브젝트 쌍 — tintSoft 배경과 색조 조화
+   PULSE(#EAF1FB 연파랑) · PickFit(#E9ECFF 연보라) · LikeLion(#E6F2FF 연파랑)
+   블록당 2개: [primary, secondary] */
+interface BlockObjCfg {
+  src: string; width: number; opacity: number; rotate: number
+  top?: string; bottom?: string; left?: string; right?: string
+}
+const BLOCK_OBJECTS: [BlockObjCfg, BlockObjCfg][] = [
+  [
+    { src: '/images/design-assets/objects/common/common-object-003.png', width: 162, opacity: 0.42, rotate: 18,  top: '7%',     right: '2%'   },
+    { src: '/images/design-assets/objects/common/common-object-012.png', width: 215, opacity: 0.26, rotate: -4,  bottom: '12%', right: '10%'  },
+  ],
+  [
+    { src: '/images/design-assets/objects/common/common-object-005.png', width: 148, opacity: 0.38, rotate: -12, bottom: '8%',  left:  '2%'   },
+    { src: '/images/design-assets/objects/common/common-object-025.png', width: 82,  opacity: 0.28, rotate: 0,   top:  '20%',   right: '5%'   },
+  ],
+  [
+    { src: '/images/design-assets/objects/common/common-object-002.png', width: 152, opacity: 0.42, rotate: -20, top: '5%',     left:  '1%'   },
+    { src: '/images/design-assets/objects/common/common-object-016.png', width: 78,  opacity: 0.32, rotate: -6,  bottom: '20%', right: '3%'   },
+  ],
+]
 
 /* 생각의 기록 — 축별 MS Paint 낙서 (섹션 전용 언어 §0.1) */
 const AXIS_DOODLE = ['squiggle', 'arrow', 'star'] as const
@@ -25,7 +48,7 @@ const AXIS_DOODLE = ['squiggle', 'arrow', 'star'] as const
 export default function Landing() {
   return (
     <>
-      <Nav />
+      <BottomNav />
       <main>
         <Hero />
         <About />
@@ -39,27 +62,94 @@ export default function Landing() {
   )
 }
 
-function Nav() {
+const NAV_SECTIONS = [
+  { id: 'about',    label: 'ABOUT'   },
+  { id: 'selected', label: 'WORK'    },
+  { id: 'writing',  label: 'WRITING' },
+  { id: 'side',     label: 'LAB'     },
+  { id: 'contact',  label: 'CONTACT' },
+] as const
+
+function BottomNav() {
+  const [active, setActive] = useState('')
+  const [shown, setShown] = useState(false)
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => {
+    const update = () => {
+      setShown(window.scrollY > 80)
+      const mid = window.innerHeight * 0.55
+      let cur = ''
+      for (const { id } of NAV_SECTIONS) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top < mid) cur = id
+      }
+      setActive(cur)
+      const footer = document.querySelector('footer')
+      setDark(!!footer && footer.getBoundingClientRect().top < window.innerHeight * 0.8)
+    }
+    window.addEventListener('scroll', update, { passive: true })
+    update()
+    return () => window.removeEventListener('scroll', update)
+  }, [])
+
   return (
-    <nav className="sticky top-0 z-50 bg-base/90 backdrop-blur-sm border-b border-line">
-      <div className="mx-auto max-w-[1200px] container-pad flex items-baseline justify-between py-4">
-<div className={`${labelEn} flex items-baseline gap-2 sm:gap-6`}>
-          <button type="button" onClick={() => scrollToId('about')} className="hover:text-ink transition-colors">
-            About
-          </button>
-          <button type="button" onClick={() => scrollToId('selected')} className="hover:text-ink transition-colors">
-            Projects
-          </button>
-          <button type="button" onClick={() => scrollToId('writing')} className="hover:text-ink transition-colors">
-            Writing
-          </button>
-          <button type="button" onClick={() => scrollToId('contact')} className="hover:text-ink transition-colors">
-            Contact
-          </button>
-          <span className="cursor-default" title="포트폴리오 완성 후 연결">
-            Resume <span className="normal-case tracking-normal">(준비중)</span>
-          </span>
-        </div>
+    <nav
+      aria-label="섹션 내비게이션"
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 select-none"
+      style={{
+        opacity: shown ? 1 : 0,
+        pointerEvents: shown ? 'auto' : 'none',
+        transition: 'opacity 0.5s',
+      }}
+    >
+      <div
+        className="flex items-center rounded-full px-5 py-[9px]"
+        style={{
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          background: dark
+            ? 'rgba(10,10,10,0.55)'
+            : 'rgba(255,255,255,0.72)',
+          border: dark
+            ? '1px solid rgba(255,255,255,0.1)'
+            : '1px solid rgba(10,10,10,0.09)',
+          boxShadow: dark
+            ? '0 4px 28px rgba(0,0,0,0.45)'
+            : '0 4px 28px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.85)',
+          transition: 'background 0.5s, border-color 0.5s, box-shadow 0.5s',
+        }}
+      >
+        {NAV_SECTIONS.map(({ id, label }, i) => {
+          const isActive = active === id
+          return (
+            <Fragment key={id}>
+              {i > 0 && (
+                <span
+                  aria-hidden
+                  className="mx-3 text-[11px] leading-none"
+                  style={{ color: dark ? 'rgba(255,255,255,0.18)' : 'rgba(10,10,10,0.18)' }}
+                >
+                  ·
+                </span>
+              )}
+              <button
+                type="button"
+                onClick={() => scrollToId(id)}
+                className="font-body text-[10px] tracking-[0.16em] uppercase focus-visible:outline-none"
+                style={{
+                  color: isActive
+                    ? (dark ? 'rgba(255,255,255,0.92)' : 'var(--color-ink)')
+                    : (dark ? 'rgba(255,255,255,0.38)' : 'rgba(10,10,10,0.38)'),
+                  fontWeight: isActive ? 600 : 400,
+                  transition: 'color 0.3s, font-weight 0.3s',
+                }}
+              >
+                {label}
+              </button>
+            </Fragment>
+          )
+        })}
       </div>
     </nav>
   )
@@ -67,7 +157,29 @@ function Nav() {
 
 function TenSecondSummary() {
   return (
-    <section id="summary" aria-label="10초 요약" className="border-t border-line">
+    <section id="summary" aria-label="10초 요약" className="relative overflow-hidden border-t border-line">
+      {/* 전환 섹션 — 3개로 레이어드 */}
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-020.png"
+        width={128} opacity={0.36} rotate={11}
+        top="20%" right="-2%"
+        tier="B" revealDelay={200}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-006.png"
+        width={46} opacity={0.22} rotate={0}
+        bottom="28%" left="6%"
+        tier="C" revealDelay={350}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-033.png"
+        width={72} opacity={0.16} rotate={180}
+        bottom="5%" right="3%"
+        tier="C" revealDelay={500}
+        hideOnMobile
+      />
       <div className="mx-auto max-w-[1200px] container-pad" style={sectionPad}>
         <Label as="h2" lang="ko">대표 작업</Label>
         <ul className="mt-8 flex flex-col gap-6">
@@ -126,8 +238,20 @@ function SelectedBlock({ project: p, index }: { project: Project; index: number 
     })
   }
 
+  const blockObjs = BLOCK_OBJECTS[index] ?? []
+
   return (
-    <article id={p.anchorId} className="scroll-mt-16" style={{ background: p.tintSoft }}>
+    <article id={p.anchorId} className="relative overflow-hidden scroll-mt-16" style={{ background: p.tintSoft }}>
+      {/* 프로젝트 tint 배경 위 종이 조각 2종 — 테마 감각 즉시 전달 */}
+      {blockObjs.map((obj, i) => (
+        <FloatingObject
+          key={i}
+          {...obj}
+          tier="B"
+          revealDelay={300 + i * 160}
+          hideOnMobile
+        />
+      ))}
       <div
         className="mx-auto max-w-[1200px] container-pad grid gap-12 md:grid-cols-2 md:items-center"
         style={sectionPad}
@@ -259,7 +383,41 @@ function CurriculumMap({ ink }: { ink: string }) {
 
 function Writing() {
   return (
-    <section id="writing" aria-label="생각의 기록" className="border-t border-line">
+    <section id="writing" aria-label="생각의 기록" className="relative overflow-hidden border-t border-line">
+      {/* ── 종이 콜라주 오브젝트 ─────────────────────────────────────────────
+          Tier A: 우측 세로 가격표 태그 — "생각에 라벨을 붙인다" 은유
+          Tier B: 좌상단 베이지 종이 — 섹션 진입 분위기
+          Tier C: 우하단 연한 원점 — 미세 질감
+          ─────────────────────────────────────────────────────────────────── */}
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-015.png"
+        width={70} opacity={0.38} rotate={-5}
+        top="12%" right="-2%"
+        tier="A" floatDuration={9} floatDelay={1.5}
+        revealDelay={300}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-023.png"
+        width={168} opacity={0.36} rotate={20}
+        top="-3%" left="-2%"
+        tier="B" revealDelay={500}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-009.png"
+        width={40} opacity={0.18} rotate={0}
+        bottom="20%" right="15%"
+        tier="C" revealDelay={700}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-017.png"
+        width={225} opacity={0.24} rotate={-4}
+        bottom="10%" left="2%"
+        tier="B" revealDelay={900}
+        hideOnMobile
+      />
       <div className="mx-auto max-w-[1200px] container-pad" style={sectionPad}>
         <div className="grid gap-10 lg:grid-cols-[1fr_320px] lg:items-start">
           <div>
@@ -441,7 +599,30 @@ function ArchivePostItem({ post }: { post: Post }) {
 
 function SideWorks() {
   return (
-    <section id="side" aria-label="실험과 확장" className="border-t border-line">
+    <section id="side" aria-label="실험과 확장" className="relative overflow-hidden border-t border-line">
+      {/* 배경 이미지 효과 위에 종이 콜라주 3개 — 층위 겹침 */}
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-014.png"
+        width={63} opacity={0.32} rotate={-8}
+        top="5%" right="4%"
+        tier="B" revealDelay={200}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-022.png"
+        width={172} opacity={0.30} rotate={14}
+        bottom="5%" left="-2%"
+        tier="A" floatDuration={9} floatDelay={2}
+        revealDelay={400}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-007.png"
+        width={42} opacity={0.16} rotate={0}
+        top="42%" right="7%"
+        tier="C" revealDelay={600}
+        hideOnMobile
+      />
       <div className="mx-auto max-w-[1200px] container-pad" style={sectionPad}>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div>
@@ -450,8 +631,8 @@ function SideWorks() {
               실험과 확장
             </h2>
             <p className="font-body text-text-sub text-[15.5px] leading-[1.75] mt-5 max-w-[66ch]">
-              대표 프로젝트 바깥에서 이어간 시각화, 지식 구조화, 인터랙션 실험입니다. 결과 화면만
-              나열하기보다 어떤 개념을 빌려와 어떤 경험 구조로 바꿨는지까지 함께 보여줍니다.
+              대표 프로젝트 바깥에서 이어간 시각화, 지식 구조화, 인터랙션 실험입니다. 결과 화면뿐
+              아니라 어떤 개념을 빌려와 어떤 경험 구조로 바꿨는지까지 함께 보여줍니다.
             </p>
           </div>
 
