@@ -1,5 +1,26 @@
 export type ProjectKey = 'pulse' | 'pickfit' | 'likelion'
 
+/** 랜딩 SelectedBlock의 tint 배경 위에 흩뿌리는 종이 조각 장식 1개의 배치 설정.
+ *  (FloatingObject로 렌더 — tier/딜레이는 Landing이 채움) */
+export interface BlockObjCfg {
+  src: string
+  width: number
+  opacity: number
+  rotate: number
+  top?: string
+  bottom?: string
+  left?: string
+  right?: string
+}
+
+/** 랜딩 프리뷰 카드 하단에 붙는 선택적 미니맵(예: 커리큘럼 단계 표).
+ *  없으면 렌더 생략. accent는 이 미니맵 전용 강조색(프로젝트 ink와 별개로 지정 가능). */
+export interface PreviewDetail {
+  accent: string
+  label: string
+  rows: [string, string][]
+}
+
 export interface Project {
   key: ProjectKey
   room: string
@@ -26,6 +47,10 @@ export interface Project {
   caseSummary: string
   decision: string
   verification: string
+  /** 랜딩 SelectedBlock tint 배경 위 종이 조각 장식(보통 2개). 없으면 장식 생략. */
+  blockObjects?: BlockObjCfg[]
+  /** 랜딩 프리뷰 카드 하단 미니맵. 없으면 생략(프로젝트마다 선택). */
+  previewDetail?: PreviewDetail
 }
 
 export const PROJECTS: Project[] = [
@@ -55,12 +80,16 @@ export const PROJECTS: Project[] = [
       alt: 'PULSE 브랜드 배너 — 외식업 자영업자를 위한 고객 분석 기반 홍보 실행 플랫폼 소개와 PULSE 로고, 맥북 목업',
       caption: '고객 데이터 분석부터 홍보 실행까지, 외식업 마케팅 플랫폼 PULSE',
     },
-    proofChips: ['UX 소논문 최우수상', 'Team Leader', 'PM', 'UI/UX', 'Frontend'],
+    proofChips: ['Team Leader', 'PM', 'UI/UX', 'Frontend'],
     caseSummary:
       '외식업 사장님이 흩어진 리뷰·고객 데이터를 보고 바로 홍보 행동을 정할 수 있게 만든 AI 마케팅 비서.',
     decision: '첫 화면에서 “오늘 무엇을 하면 좋은지”부터 보여주도록 흐름을 잡았습니다.',
     verification:
-      'UX 소논문 최우수상 연구와 Adwise 해커톤 경험을 PULSE의 리뷰 분석·홍보 실행 구조로 확장했습니다.',
+      "리뷰·고객 데이터를 '오늘의 홍보 행동'까지 잇는 문제로 정의하고, 광고 장면 구조 연구와 Adwise 해커톤 경험을 PULSE 기획의 근거로 확장했습니다.",
+    blockObjects: [
+      { src: '/images/design-assets/objects/common/common-object-003.png', width: 162, opacity: 0.42, rotate: 18, top: '7%', right: '2%' },
+      { src: '/images/design-assets/objects/common/common-object-012.png', width: 215, opacity: 0.26, rotate: -4, bottom: '12%', right: '10%' },
+    ],
   },
   {
     key: 'pickfit',
@@ -95,6 +124,10 @@ export const PROJECTS: Project[] = [
       '상황과 조건을 말하면 후보를 좁혀주는 위임형 추천으로 방향을 잡았습니다. 제작 과정에선 prompt·Skills·subagent·harness engineering을 설계와 검증에 썼고, 추천 결과가 실제로 화면에 들어갈 구조인지까지 확인했습니다.',
     verification:
       '기획 인사이트, 핵심 UI, 독립 디자인 시스템, 추천 입력/출력 검증까지 직접 만들어, 사용자의 결정 피로를 줄이는 제품으로 정리했습니다.',
+    blockObjects: [
+      { src: '/images/design-assets/objects/common/common-object-005.png', width: 148, opacity: 0.38, rotate: -12, bottom: '8%', left: '2%' },
+      { src: '/images/design-assets/objects/common/common-object-025.png', width: 82, opacity: 0.28, rotate: 0, top: '20%', right: '5%' },
+    ],
   },
   {
     key: 'likelion',
@@ -104,18 +137,18 @@ export const PROJECTS: Project[] = [
     ink: '#FF6000',
     tone: '#E6F2FF',
     tintSoft: '#EEF6FF',
-    role: '기획 파트장 · 멋쟁이사자처럼 14기 · 20주 커리큘럼 단독 설계',
+    role: '기획 파트장 · 멋쟁이사자처럼 14기 · 1년 커리큘럼 단독 설계',
     summary:
       '초보자에게 기획이란 무엇인지, 어떻게 생각하는지를 가르치기 위해 PM·UX 커리큘럼을 직접 설계했습니다. 개념부터 실전 흐름까지, 혼자 구성하고 강의했습니다.',
     anchorId: 'selected-likelion',
     tagline: '개념→흐름',
-    tenSecond: '초보자를 위한 20주 PM·UX 커리큘럼, 기획 단독 설계·강의',
+    tenSecond: '초보자를 위한 1년 PM·UX 커리큘럼, 기획 단독 설계·강의',
     problem:
       "초보자는 PM/UX 개념을 들어도 '다음에 뭘 하지?'를 실제 프로젝트 흐름으로 옮기지 못합니다.",
     myCall:
       "수강생이 '다음에 뭘 해야 하는지'를 알 수 있도록 문제→로직·상태→데이터·BM 순서로 커리큘럼을 설계했습니다.",
     impact:
-      '막연한 아이디어를 결정 가능한 기획으로 잇는 20주 커리큘럼을 단독 설계해 직접 강의했습니다.',
+      '막연한 아이디어를 결정 가능한 기획으로 잇는 1년 커리큘럼을 단독 설계해 직접 강의했습니다.',
     previewImage: {
       src: '/images/evidence/likelion/session_photo.jpg',
       alt: '멋쟁이사자처럼 세션 현장 — 노태경이 학생들 앞에서 Pain Point 실습을 지도하는 사진',
@@ -128,5 +161,20 @@ export const PROJECTS: Project[] = [
       '문제 정의에서 회고와 문제 재정의까지 이어지는 4-Phase 학습 과정으로 설계했습니다.',
     verification:
       '커리큘럼 문서, 세션 사진, 운영진 스터디, 카드뉴스와 Figma 운영보드로 운영 증거를 남겼습니다.',
+    blockObjects: [
+      { src: '/images/design-assets/objects/common/common-object-002.png', width: 152, opacity: 0.42, rotate: -20, top: '5%', left: '1%' },
+      { src: '/images/design-assets/objects/common/common-object-016.png', width: 78, opacity: 0.32, rotate: -6, bottom: '20%', right: '3%' },
+    ],
+    // 프리뷰 카드 하단 4단계 커리큘럼 미니맵(간소화). accent는 LikeLion 메인색 블루(#0060C6) — ink(오렌지)와 별개.
+    previewDetail: {
+      accent: '#0060C6',
+      label: '4단계 커리큘럼',
+      rows: [
+        ['01', 'Why·Who·What·How'],
+        ['02', '화면 로직·상태 설계'],
+        ['03', '실전·데이터·비즈니스'],
+        ['04', '회고·문제 재정의'],
+      ],
+    },
   },
 ]

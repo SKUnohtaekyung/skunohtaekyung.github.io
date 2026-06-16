@@ -265,27 +265,74 @@ export default function ProjectRoom() {
         </div>
       </section>
 
-      {room.casePanels && (
-        <section aria-label="케이스 구조" style={{ ...roomPad, paddingTop: 0 }}>
+      {(room.phaseFlow || room.casePanels) && (
+        <section aria-label="설계 구조" style={{ ...roomPad, paddingTop: 0 }}>
           <div className="mx-auto max-w-[1080px]">
             <Label as="h2" lang="ko">설계 구조</Label>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {room.casePanels.map((panel) => (
-                <Reveal key={panel.title}>
-                  <article className="border-t border-line pt-5">
-                    <p className="font-body font-semibold uppercase tracking-[0.18em] text-[11.5px]" style={{ color: project.ink }}>
-                      {panel.eyebrow}
+
+            {room.phaseFlow ? (
+              <div className="mt-8">
+                <Reveal>
+                  <p className="font-body font-semibold uppercase tracking-[0.18em] text-[11.5px]" style={{ color: project.ink }}>
+                    {room.phaseFlow.eyebrow}
+                  </p>
+                  <h3 className="font-body font-bold text-ink text-[20px] leading-[1.4] mt-3 max-w-[40ch]">
+                    {room.phaseFlow.title}
+                  </h3>
+                  {room.phaseFlow.intro && (
+                    <p className="font-body text-text-sub text-[14.5px] leading-[1.75] mt-3 max-w-[72ch]">
+                      {room.phaseFlow.intro}
                     </p>
-                    <h3 className="font-body font-bold text-ink text-[18px] leading-[1.45] mt-3">
-                      {panel.title}
-                    </h3>
-                    <p className="font-body text-text-sub text-[14.5px] leading-[1.7] mt-3">
-                      {panel.body}
-                    </p>
-                  </article>
+                  )}
                 </Reveal>
-              ))}
-            </div>
+                {/* 4단계 흐름 다이어그램 — 줄글 대신 단계 위계로 시각화(번호·상단 액센트 룰·연결 화살표) */}
+                <ol className="mt-10 grid gap-x-7 gap-y-9 sm:grid-cols-2 lg:grid-cols-4">
+                  {room.phaseFlow.phases.map((p, i) => (
+                    <Reveal key={p.no} delay={i * 0.08}>
+                      <li className="relative border-t-2 pt-4" style={{ borderColor: project.ink }}>
+                        {i < room.phaseFlow!.phases.length - 1 && (
+                          <span aria-hidden className="hidden lg:block absolute -right-[18px] top-2.5 text-text-faint text-[15px] leading-none">
+                            →
+                          </span>
+                        )}
+                        <div className="flex items-baseline gap-2">
+                          <span className="font-display font-bold text-[30px] leading-none tracking-[-0.04em]" style={{ color: project.ink }}>
+                            {p.no}
+                          </span>
+                          <span className="font-body font-semibold uppercase tracking-[0.14em] text-[10px] text-text-muted">Phase</span>
+                        </div>
+                        <p className="font-body font-bold text-ink text-[15px] leading-[1.4] mt-3">{p.name}</p>
+                        <p className="font-body text-text-sub text-[13px] leading-[1.6] mt-1.5">{p.desc}</p>
+                      </li>
+                    </Reveal>
+                  ))}
+                </ol>
+              </div>
+            ) : (
+              /* 가독성 개선 — 상단 액센트 룰 + 인덱스 번호로 위계를 또렷하게 */
+              <div className="mt-8 grid gap-x-8 gap-y-10 md:grid-cols-3">
+                {room.casePanels!.map((panel, i) => (
+                  <Reveal key={panel.title}>
+                    <article className="border-t-2 pt-5" style={{ borderColor: project.ink }}>
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="font-body font-semibold uppercase tracking-[0.18em] text-[11px]" style={{ color: project.ink }}>
+                          {panel.eyebrow}
+                        </p>
+                        <span className="font-display font-bold text-[13px] tabular-nums" style={{ color: project.ink, opacity: 0.45 }}>
+                          0{i + 1}
+                        </span>
+                      </div>
+                      <h3 className="font-body font-bold text-ink text-[17px] leading-[1.42] mt-3">
+                        {panel.title}
+                      </h3>
+                      <p className="font-body text-text-sub text-[14px] leading-[1.78] mt-3">
+                        {panel.body}
+                      </p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}

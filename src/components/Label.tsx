@@ -12,7 +12,7 @@ interface LabelProps {
 
 export const labelEnClass =
   'font-body font-semibold uppercase tracking-[0.18em] text-text-muted text-[11.5px]'
-export const labelKoClass = 'font-body font-medium tracking-normal text-text-muted text-[13px]'
+const labelKoClass = 'font-body font-medium tracking-normal text-text-muted text-[13px]'
 
 export default function Label({ as = 'p', lang = 'en', className = '', children }: LabelProps) {
   return createElement(as, { className: `${lang === 'en' ? labelEnClass : labelKoClass} ${className}` }, children)

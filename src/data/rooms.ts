@@ -78,6 +78,13 @@ export interface RoomData {
     title: string
     body: string
   }[]
+  /** 설계 구조를 줄글 대신 단계 다이어그램으로 시각화 (있으면 casePanels 대신 렌더) */
+  phaseFlow?: {
+    eyebrow: string
+    title: string
+    intro?: string
+    phases: { no: string; name: string; desc: string }[]
+  }
   aiUsage?: {
     intro: string
     blocks: AiUsageBlock[]
@@ -227,9 +234,9 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
           body:
             '“복잡한 광고는 AI로 쉽게, 수수료 비교는 차트로.” 소상공인의 광고 실행을 돕는 플랫폼을 프론트엔드로 구현하며, 사용자가 광고를 만든 다음 부딪히는 벽을 가까이서 봤습니다.',
           image: {
-            src: '/images/evidence/pulse/adwise_landing_mockup.png',
-            alt: 'Adwise 랜딩 목업 — PULSE 탄생의 원점이 된 해커톤 프로젝트',
-            caption: 'Convenient Adwise — 광고는 AI로, 비교는 차트로',
+            src: '/images/evidence/pulse/adwise.png',
+            alt: 'Adwise 프로젝트 카드 — 복잡한 광고는 AI로, 수수료 비교는 차트로 (멋사 13기 해커톤)',
+            caption: 'Adwise — 복잡한 광고는 AI로 쉽게, 수수료 비교는 차트로',
           },
         },
         {
@@ -269,7 +276,7 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
       output:
         '리뷰→페르소나→홍보 실행을 하나로 잇는 제품을 0→1로 만들고 배포 직전 단계까지 진행했습니다.',
       verification:
-        'UX 소논문 최우수상 연구를 리뷰 기반 손님 분석 근거로 연결했고, Adwise 해커톤 상위 14% 경험을 홍보 실행 흐름의 출발점으로 확장했습니다.',
+        '리뷰 기반 손님 분석을 연구로 검증하고, Adwise 해커톤(상위 14%) 경험을 홍보 실행 흐름의 출발점으로 확장했습니다.',
       uxWritingPoint:
         '사장님이 이해하기 쉬운 지표명, 오늘의 기회 신호, 추천 이유 문장을 중심으로 AI 결과를 “설명”에서 “행동 제안”으로 바꿔 읽히게 설계했습니다.',
       learning:
@@ -521,14 +528,14 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
       { src: '/images/design-assets/objects/likelion/likelion-object-018.png', width: 130, opacity: 0.48, rotate:  3, top: '74%', right: '0' },
     ],
     entranceLine:
-      '제품 사고 과정을 20주 커리큘럼이라는 교육 시스템으로 설계하고, 운영 사이클 안에서 직접 강의하며 검증했습니다.',
+      '제품 사고 과정을 1년 커리큘럼이라는 교육 시스템으로 설계하고, 운영 사이클 안에서 직접 강의하며 검증했습니다.',
     entranceDetail:
       '멋쟁이사자처럼 14기 기획 파트장으로, 수강생 14명의 커리큘럼을 직접 짜고 매주 강의했습니다. 가르치며 발견한 것을 다음 주 강의에 바로 반영하는 사이클을 반복하며, 기획이 실제로 작동하는지 검증했습니다.',
     mainWallSize: 'compact',
     mainWall: {
       src: '/images/evidence/likelion/session_photo.jpg',
       alt: '멋쟁이사자처럼 세션 현장 — 노태경이 학생들 앞에서 Pain Point 실습을 지도하는 사진',
-      caption: '20주 커리큘럼을 직접 설계하고, 세션마다 학생들 앞에서 강의한 현장',
+      caption: '1년 커리큘럼을 직접 설계하고, 세션마다 학생들 앞에서 강의한 현장',
     },
     evidence: [
       {
@@ -618,26 +625,18 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
         },
       ],
     },
-    casePanels: [
-      {
-        eyebrow: 'curriculum architecture',
-        title: '20주 과정을 하나의 제품 흐름처럼 설계',
-        body:
-          '커리큘럼 원문은 “문제를 발견하고, 사용자를 이해하고, 구조와 로직과 상태를 설계하며, 실전 협업과 검증, 개선까지 경험하는 과정”을 목표로 둡니다. 그래서 초보자가 다음 행동을 알 수 있는 학습 여정으로 구성했습니다. 매 주차가 독립적이면서도 전체 흐름 안에 위치하도록, 각 세션의 앞·뒤 연결을 설계에 명시했습니다.',
-      },
-      {
-        eyebrow: '4-phase flow',
-        title: '기획 기본기에서 회고와 문제 재정의까지',
-        body:
-          '초반부는 Why·Who·What·IA로 기획의 뼈대를 만들고, 중반부는 화면 로직·상태·예외 설계로 구체화합니다. 후반부는 데이터·비즈니스·AI 활용으로 확장하고, 마지막은 해커톤 이후 회고와 문제 재정의로 닫습니다. 각 Phase 끝에서 수강생이 "여기까지 왔다"를 확인할 수 있는 마디를 두어, 학습 맥락이 끊기지 않도록 했습니다.',
-      },
-      {
-        eyebrow: 'operation system',
-        title: '강의자료, 과제, 운영보드, 카드뉴스까지 함께 운영',
-        body:
-          'Figma 운영보드와 카드뉴스는 홍보를 넘어 교육 운영의 접점이 됐습니다. 모집 커뮤니케이션, 파트 안내, 세션 준비, 현장 멘토링까지 한 흐름으로 관리했습니다. 운영진 전체가 같은 기준으로 수강생을 대할 수 있도록, 접점마다 기준을 명문화하고 공유했습니다.',
-      },
-    ],
+    phaseFlow: {
+      eyebrow: 'curriculum architecture',
+      title: '1년 과정을 하나의 제품 흐름처럼 설계',
+      intro:
+        '매 주차가 독립적이면서도 전체 흐름 안에 놓이도록, 초보자가 “다음에 뭘 해야 하는지”를 알 수 있는 학습 여정으로 4단계를 설계했습니다.',
+      phases: [
+        { no: '01', name: 'Why · Who · What · How', desc: '문제 정의부터 타깃·기능·구조까지, 기획의 뼈대를 세우는 기본기.' },
+        { no: '02', name: '화면 로직 · 상태 설계', desc: '화면 로직과 상태·예외까지 구체화해, 실제로 만들 수 있는 형태로.' },
+        { no: '03', name: '실전 · 데이터 · 비즈니스', desc: '데이터·비즈니스·AI 활용으로 확장하며 실전 협업과 검증을 경험.' },
+        { no: '04', name: '회고 · 문제 재정의', desc: '해커톤 이후 회고와 문제 재정의로 학습 맥락을 닫는 마디.' },
+      ],
+    },
     writingRefs: [
       {
         title: '바로 디자인하면 안 되는 이유',
@@ -667,11 +666,11 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
       insight:
         "좋은 교육은 개념을 많이 전달하는 것보다 '다음 행동을 알 수 있게 만드는 구조'에 가깝다고 봤습니다. 그래서 커리큘럼 자체를 다음 단계가 분명한 흐름으로 설계했습니다.",
       role:
-        '멋쟁이사자처럼 14기 기획 파트장으로 20주 기획 커리큘럼 단독 설계, 세션 직접 강의, 강의자료·과제 설계, 운영진 스터디와 Figma 운영보드 관리를 맡았습니다.',
+        '멋쟁이사자처럼 14기 기획 파트장으로 1년 기획 커리큘럼 단독 설계, 세션 직접 강의, 강의자료·과제 설계, 운영진 스터디와 Figma 운영보드 관리를 맡았습니다.',
       coreFlow:
-        '1~4주 문제·사용자·MVP·IA 기초, 5~7주 화면 로직·상태 설계, 8~16주 실전·데이터·비즈니스, 17~20주 회고와 문제 재정의로 이어지는 4-Phase 구조.',
+        'Phase 1 Why·Who·What·How로 기획 기본기, Phase 2 화면 로직·상태 설계, Phase 3 실전·데이터·비즈니스, Phase 4 회고와 문제 재정의로 이어지는 4-Phase 구조.',
       output:
-        '막연한 아이디어가 실제로 만들 수 있는 기획으로 발전하도록 20주 과정, 과제, 세션 자료, 운영 보드를 설계하고 직접 강의했습니다.',
+        '막연한 아이디어가 실제로 만들 수 있는 기획으로 발전하도록 1년 과정, 과제, 세션 자료, 운영 보드를 설계하고 직접 강의했습니다.',
       verification:
         '커리큘럼 원문, Figma 운영보드, 카드뉴스, 운영진 스터디, 세션 사진으로 설계와 운영의 증거를 남겼습니다.',
       uxWritingPoint:

@@ -205,10 +205,17 @@ function Recognition() {
         <span className="font-body text-text-muted text-[13px]">활동하고, 인정받은 것들.</span>
       </div>
 
-      <div className="mt-6">
-        {TIMELINE.map((g) => (
-          <TimelineRow key={g.year} group={g} />
-        ))}
+      {/* 좌측 레일 타임라인 — 중앙선 지그재그 대신, 좌측 정렬·스캔성 유지(§8 박스 금지) */}
+      <div className="relative mt-8 sm:pl-7">
+        <span
+          aria-hidden
+          className="absolute left-[3px] top-1.5 bottom-1.5 w-px bg-line hidden sm:block"
+        />
+        <div className="flex flex-col gap-9">
+          {TIMELINE.map((g) => (
+            <TimelineRow key={g.year} group={g} />
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -216,9 +223,15 @@ function Recognition() {
 
 function TimelineRow({ group }: { group: TimelineGroup }) {
   return (
-    <div className="border-t border-line py-6 grid gap-3 lg:grid-cols-[120px_minmax(0,1fr)]">
-      <p className="font-display font-bold tracking-[-0.02em] text-ink text-[22px] leading-none">{group.year}</p>
-      <ul>
+    <div className="relative">
+      {/* 연도 노드 (레일 위 점) */}
+      <span
+        aria-hidden
+        className="absolute -left-7 top-[5px] hidden sm:block h-[7px] w-[7px] rounded-full ring-4 ring-base"
+        style={{ background: 'var(--color-ink)' }}
+      />
+      <p className="font-display font-bold tracking-[-0.02em] text-ink text-[19px] leading-none">{group.year}</p>
+      <ul className="mt-3">
         {group.items.map((it) => (
           <TimelineEntry key={it.title} item={it} />
         ))}
@@ -229,9 +242,11 @@ function TimelineRow({ group }: { group: TimelineGroup }) {
 
 function TimelineEntry({ item }: { item: TimelineItem }) {
   const { link } = item
+  // 위계: 수상·진행 중 = 또렷한 ink 굵게 / 단순 활동 = 한 톤 죽여 노이즈 축소
+  const emphasized = !!item.award || !!item.ongoing
   return (
     <li className="border-t border-line first:border-t-0 py-3.5">
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+      <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1.5">
         {item.award && (
           <span
             className="font-body font-bold text-[10px] leading-none uppercase tracking-[0.08em] px-2 py-1 border rounded-full whitespace-nowrap"
@@ -240,7 +255,23 @@ function TimelineEntry({ item }: { item: TimelineItem }) {
             {item.award}
           </span>
         )}
-        <p className="font-body font-bold text-ink text-[15px] leading-[1.4]">{item.title}</p>
+        <p
+          className={`font-body text-[15px] leading-[1.4] ${emphasized ? 'font-bold text-ink' : 'font-medium text-text-sub'}`}
+        >
+          {item.title}
+        </p>
+        {item.ongoing && (
+          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+            <span
+              aria-hidden
+              className="h-[6px] w-[6px] rounded-full animate-pulse"
+              style={{ background: 'var(--color-pulse)' }}
+            />
+            <span className="font-body font-semibold text-[10.5px] tracking-[0.04em]" style={{ color: 'var(--color-pulse)' }}>
+              진행 중
+            </span>
+          </span>
+        )}
         <span className="font-body text-text-faint text-[12px] ml-auto whitespace-nowrap">{item.period}</span>
       </div>
       {item.org && <p className="font-body text-text-muted text-[12px] leading-[1.5] mt-1">{item.org}</p>}
@@ -249,10 +280,13 @@ function TimelineEntry({ item }: { item: TimelineItem }) {
         <button
           type="button"
           onClick={() => scrollToId(link.anchorId)}
-          className="font-body font-semibold text-[12px] tracking-[0.04em] mt-2 inline-block hover:underline underline-offset-4"
+          className="group/link font-body font-semibold text-[12px] tracking-[0.04em] mt-2 inline-flex items-center gap-1"
           style={{ color: link.color }}
         >
-          → {link.label}에서 활용
+          <span aria-hidden className="transition-transform group-hover/link:translate-x-0.5">→</span>
+          <span className="group-hover/link:underline underline-offset-4">
+            {link.label}{link.suffix ?? '에서 활용'}
+          </span>
         </button>
       )}
     </li>

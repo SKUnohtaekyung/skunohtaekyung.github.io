@@ -10,7 +10,7 @@ import Finale from '../components/finale/Finale'
 import Hero from '../components/hero/Hero'
 import Label, { labelEnClass as labelEn } from '../components/Label'
 import FlipTitle, { type FlipTitleHandle } from '../components/transition/FlipTitle'
-import { PROJECTS, type Project } from '../data/projects'
+import { PROJECTS, type Project, type PreviewDetail } from '../data/projects'
 import { SIDE_WORKS, type SideWork, type SideWorkImage } from '../data/sideWorks'
 import { FEATURED_WRITING, VELOG_PROFILE, VELOG_URL, WRITING, WRITING_AXES, type Post } from '../data/writing'
 import { scrollToId } from '../lib/lenis'
@@ -20,27 +20,8 @@ import FloatingObject from '../components/FloatingObject'
 /* 섹션 수직 리듬 — design-system §9.1 --section-padding-y */
 const sectionPad = { paddingBlock: 'clamp(96px, 12vw, 180px)' }
 
-/* SelectedBlock 프로젝트별 오브젝트 쌍 — tintSoft 배경과 색조 조화
-   PULSE(#EAF1FB 연파랑) · PickFit(#E9ECFF 연보라) · LikeLion(#E6F2FF 연파랑)
-   블록당 2개: [primary, secondary] */
-interface BlockObjCfg {
-  src: string; width: number; opacity: number; rotate: number
-  top?: string; bottom?: string; left?: string; right?: string
-}
-const BLOCK_OBJECTS: [BlockObjCfg, BlockObjCfg][] = [
-  [
-    { src: '/images/design-assets/objects/common/common-object-003.png', width: 162, opacity: 0.42, rotate: 18,  top: '7%',     right: '2%'   },
-    { src: '/images/design-assets/objects/common/common-object-012.png', width: 215, opacity: 0.26, rotate: -4,  bottom: '12%', right: '10%'  },
-  ],
-  [
-    { src: '/images/design-assets/objects/common/common-object-005.png', width: 148, opacity: 0.38, rotate: -12, bottom: '8%',  left:  '2%'   },
-    { src: '/images/design-assets/objects/common/common-object-025.png', width: 82,  opacity: 0.28, rotate: 0,   top:  '20%',   right: '5%'   },
-  ],
-  [
-    { src: '/images/design-assets/objects/common/common-object-002.png', width: 152, opacity: 0.42, rotate: -20, top: '5%',     left:  '1%'   },
-    { src: '/images/design-assets/objects/common/common-object-016.png', width: 78,  opacity: 0.32, rotate: -6,  bottom: '20%', right: '3%'   },
-  ],
-]
+/* SelectedBlock 프로젝트별 종이 조각 장식은 각 프로젝트 데이터(projects.ts `blockObjects`)가 들고 있다.
+   tintSoft 배경과 색조 조화 — PULSE(연파랑)·PickFit(연보라)·LikeLion(연파랑). 블록당 보통 2개. */
 
 /* 생각의 기록 — 축별 MS Paint 낙서 (섹션 전용 언어 §0.1) */
 const AXIS_DOODLE = ['squiggle', 'arrow', 'star'] as const
@@ -238,7 +219,7 @@ function SelectedBlock({ project: p, index }: { project: Project; index: number 
     })
   }
 
-  const blockObjs = BLOCK_OBJECTS[index] ?? []
+  const blockObjs = p.blockObjects ?? []
 
   return (
     <article id={p.anchorId} className="relative overflow-hidden scroll-mt-16" style={{ background: p.tintSoft }}>
@@ -345,7 +326,7 @@ function SelectedPreview({ project, className = '' }: { project: Project; classN
             style={{ borderRadius: 'calc(var(--frame-radius) - 10px)' }}
           />
         </div>
-        {project.key === 'likelion' && <CurriculumMap ink="#0060C6" />}
+        {project.previewDetail && <PreviewMap detail={project.previewDetail} />}
       </div>
       <figcaption className="font-body text-text-muted text-[12.5px] leading-[1.5] mt-3 px-1">
         {project.previewImage.caption}
@@ -354,26 +335,21 @@ function SelectedPreview({ project, className = '' }: { project: Project; classN
   )
 }
 
-function CurriculumMap({ ink }: { ink: string }) {
-  const phases = [
-    ['1-4W', '문제·사용자·MVP·IA'],
-    ['5-7W', '로직·상태·화면 설계'],
-    ['8-16W', '실전·데이터·비즈니스'],
-    ['17-20W', '회고·문제 재정의'],
-  ] as const
-
+/* 프리뷰 카드 하단 미니맵 — 프로젝트 데이터의 previewDetail이 있을 때만 렌더(범용).
+   예: LikeLion 4단계 커리큘럼. accent는 데이터가 지정(LikeLion은 블루 #0060C6). */
+function PreviewMap({ detail }: { detail: PreviewDetail }) {
   return (
-    <div className="border-t border-line px-4 py-4 md:px-5">
-      <p className={`${labelEn} mb-3`} style={{ color: ink }}>
-        20 weeks · 4-phase curriculum
+    <div className="border-t border-line px-4 py-3 md:px-5">
+      <p className={`${labelEn} mb-2`} style={{ color: detail.accent }}>
+        {detail.label}
       </p>
-      <ol className="grid gap-2 sm:grid-cols-2">
-        {phases.map(([week, label]) => (
-          <li key={week} className="grid grid-cols-[58px_1fr] items-baseline gap-3">
-            <span className="font-display font-semibold uppercase tracking-[-0.04em] text-[17px]" style={{ color: ink }}>
-              {week}
+      <ol className="grid gap-x-5 gap-y-1.5 sm:grid-cols-2">
+        {detail.rows.map(([key, label]) => (
+          <li key={key} className="grid grid-cols-[24px_1fr] items-baseline gap-2.5">
+            <span className="font-display font-semibold uppercase tracking-[-0.04em] text-[14px]" style={{ color: detail.accent }}>
+              {key}
             </span>
-            <span className="font-body text-text-sub text-[13px] leading-[1.45]">{label}</span>
+            <span className="font-body text-text-sub text-[12.5px] leading-[1.4]">{label}</span>
           </li>
         ))}
       </ol>

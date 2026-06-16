@@ -73,6 +73,8 @@ export interface TimelineLink {
   label: string
   anchorId: string
   color: string
+  /** 링크 꼬리말 — 기본 '에서 활용'. (예: FLOW는 '로 이어짐') */
+  suffix?: string
 }
 
 export interface TimelineItem {
@@ -83,6 +85,8 @@ export interface TimelineItem {
   award?: string
   /** 한 줄 의미 (사용자 본인 언어) */
   note?: string
+  /** 현재 진행 중인 활동 — '진행 중' 배지 표시 */
+  ongoing?: boolean
   /** 관련 프로젝트로 연결 ('나열식' 회피 — 인정과 작업을 잇는다) */
   link?: TimelineLink
 }
@@ -94,25 +98,35 @@ export interface TimelineGroup {
 
 const PULSE_LINK: TimelineLink = { label: 'PULSE', anchorId: 'selected-pulse', color: '#002B7A' }
 const LIKELION_LINK: TimelineLink = { label: 'LikeLion', anchorId: 'selected-likelion', color: '#0060C6' }
+const FLOW_LINK: TimelineLink = { label: '졸업전시 FLOW', anchorId: 'side', color: '#0A0A0A', suffix: '로 이어짐' }
 
 export const TIMELINE: TimelineGroup[] = [
   {
     year: '2025–2026',
     items: [
       {
-        title: '사용자 경험(UX) 디자인 소논문 경진대회',
-        org: '성결대학교',
+        title: '캡스톤디자인 경진대회',
+        org: '성결대학교 · 졸업 캡스톤 연구',
         award: '최우수상',
-        period: '2026.01',
-        note: '졸업작품 팀원들과, AI가 뽑은 군집을 사람이 읽는 페르소나로 번역하는 방법을 검증받았다.',
+        period: '2026 상반기',
+        note: '숏폼 광고의 장면 흐름(Hook·Showcase·Highlight·CTA)을 AIDA 모델로 재구조화하고, DSPy 기반 프롬프트 생성 프레임워크로 설계·검증했다.',
         link: PULSE_LINK,
       },
       {
         title: '멋쟁이사자처럼 14기 기획·디자인 파트장',
-        org: '성결대학교 · 기획 운영진(기획 1·디자인 1), 수강생 6명',
+        org: '멋쟁이사자처럼 성결대학교 기획 운영진',
         period: '2025.12 – 2026.12',
-        note: '초보자가 PM·UX 사고를 익히도록 20주 커리큘럼을 직접 설계하고 강의했다.',
+        ongoing: true,
+        note: '초보자가 PM·UX 사고를 익히도록 1년 커리큘럼을 직접 설계하고 강의했다.',
         link: LIKELION_LINK,
+      },
+      {
+        title: '사용자 경험(UX) 디자인 소논문 경진대회',
+        org: '성결대학교',
+        award: '최우수상',
+        period: '2025 하반기',
+        note: '졸업작품 팀원들과, AI가 뽑은 군집을 사람이 읽는 페르소나로 번역하는 방법을 검증받았다.',
+        link: PULSE_LINK,
       },
       {
         title: '멋쟁이사자처럼 13기 중앙 해커톤',
@@ -129,7 +143,11 @@ export const TIMELINE: TimelineGroup[] = [
       },
       {
         title: '성결대학교 미디어소프트웨어학과 조교',
+        org: '성결대학교 미디어소프트웨어학과',
         period: '2025.03 – 2026.08',
+        ongoing: true,
+        note: '행정 보조와 학과 행사 기획·운영을 맡았고, 졸업작품 전시회 FLOW의 배너 디자인 컨셉을 직접 잡았다.',
+        link: FLOW_LINK,
       },
       {
         title: '미디어소프트웨어학과 학생회 기획국장',
@@ -139,12 +157,12 @@ export const TIMELINE: TimelineGroup[] = [
     ],
   },
   {
-    year: '2021',
+    year: '2022',
     items: [
       {
         title: '미디어소프트웨어학과 학생회 기획부장',
         org: '성결대학교',
-        period: '2021.03 – 12',
+        period: '2022.03 – 12',
       },
     ],
   },

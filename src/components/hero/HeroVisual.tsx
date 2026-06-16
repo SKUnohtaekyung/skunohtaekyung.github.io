@@ -2,7 +2,7 @@
 // static→canvas 크로스페이드 제거 — canvas는 alpha:true이므로 meshes가 opacity:0→1 애니메이션하면서
 // static을 덮어감. 사용자 입장에서는 static이 보이다가 바로 효과가 붙은 이미지로 전환.
 // WebGL context lost / SceneBoundary 오류 시: canvas 언마운트, static이 그대로 남음.
-import { Component, lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
+import { Component, lazy, Suspense, useState, type ReactNode } from 'react'
 import { HERO_STATIC_SRC } from '../../data/heroLayers'
 
 const HeroScene = lazy(() => import('./HeroScene'))
@@ -19,12 +19,9 @@ class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean
 }
 
 export default function HeroVisual() {
-  const [enableScene, setEnableScene] = useState(false)
+  // reduced-motion이면 WebGL 씬을 아예 마운트하지 않음(정적 이미지만). CSR 전용이라 render 시점에 평가 가능.
+  const [enableScene] = useState(() => !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   const [sceneDead, setSceneDead] = useState(false)
-
-  useEffect(() => {
-    setEnableScene(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  }, [])
 
   return (
     <div className="relative w-full aspect-[1672/941]" role="img" aria-label={ALT}>

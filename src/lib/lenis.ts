@@ -17,10 +17,6 @@ export function useLenisRoot(): void {
   }, [])
 }
 
-export function getLenis(): Lenis | null {
-  return lenis
-}
-
 /** 10초 요약 → Selected 블록 앵커 스크롤 (시그니처 전환 아님 — §0.1).
  *  WCAG 2.4.3: 스크롤 후 대상으로 포커스 이동 */
 export function scrollToId(id: string): void {
