@@ -97,7 +97,7 @@ export interface TimelineGroup {
 }
 
 const PULSE_LINK: TimelineLink = { label: 'PULSE', anchorId: 'selected-pulse', color: '#002B7A' }
-const LIKELION_LINK: TimelineLink = { label: 'LikeLion', anchorId: 'selected-likelion', color: '#0060C6' }
+const LIKELION_LINK: TimelineLink = { label: 'LikeLion', anchorId: 'selected-likelion', color: '#FF6000' }
 const FLOW_LINK: TimelineLink = { label: '졸업전시 FLOW', anchorId: 'side', color: '#0A0A0A', suffix: '로 이어짐' }
 
 export const TIMELINE: TimelineGroup[] = [

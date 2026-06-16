@@ -65,12 +65,22 @@ export default function About() {
 
 function Headline() {
   const [before, after] = PROFILE.headline.split(PROFILE.name)
+  // 헤드라인의 'PM' 텍스트를 종이 콜라주 PM 레터링 이미지로 대체
+  const [bHead, bTail] = before.includes('PM') ? before.split('PM') : [before, '']
   return (
     <h2
       className="font-body font-bold text-ink mt-4 leading-[1.3]"
       style={{ fontSize: 'clamp(24px,3.2vw,40px)', letterSpacing: '-0.03em' }}
     >
-      {before}
+      {bHead}
+      <img
+        src="/images/PM.png"
+        alt="PM"
+        className="inline-block w-auto align-baseline mx-[0.06em] select-none"
+        style={{ height: '1.15em', transform: 'translateY(0.16em)' }}
+        draggable={false}
+      />
+      {bTail}
       <span className="relative whitespace-nowrap">
         {PROFILE.name}
         <span
