@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
       alt: 'PickFit 브랜드 배너 — 로고, 상황에 맞는 코디를 빠르게 골라주는 패션 결정 앱 태그라인, 아이폰 목업 2대',
       caption: '상황에 맞는 코디를 빠르게 골라주는 패션 결정 앱, PickFit',
     },
-    proofChips: ['1인 풀스택', 'PM/UX 기획', '독립 디자인 시스템', 'AI Workflow', 'Harness'],
+    proofChips: ['1인 풀스택', 'PM/UX 기획', '독립 디자인 시스템', 'AI Workflow'],
     caseSummary:
       '옷을 고르는 사용자가 선택에 확신을 갖도록 만든 AI 코디 추천 서비스.',
     decision:

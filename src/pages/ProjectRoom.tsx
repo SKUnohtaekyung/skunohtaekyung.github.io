@@ -339,68 +339,131 @@ export default function ProjectRoom() {
 
       {room.aiUsage && (
         <section id="ai-usage" aria-label="AI 사용 방식" style={{ ...roomPad, paddingTop: 0 }}>
-          <div className="mx-auto max-w-[1080px]">
-            <Label as="h2" lang="ko">AI 사용 방식</Label>
-            <p className="font-body text-text-sub text-[15.5px] leading-[1.75] mt-4 max-w-[76ch]">
-              {room.aiUsage.intro}
+          <div className="mx-auto max-w-[920px]">
+            <Label as="h2" lang="ko" className="text-[15px]">AI 사용 방식</Label>
+            <p className="font-body text-text-sub text-[15.5px] leading-[1.75] mt-4 max-w-[72ch]">
+              {project.key === 'pickfit' ? (
+                <>
+                  PickFit을 만드는 과정에서 쓴 방법입니다. 기획부터 DB까지 혼자 맡으면서,{' '}
+                  <strong className="font-semibold" style={{ color: project.ink }}>AI를 초안 생성기가 아니라 분야별 전문가로 나눠 직접 지휘했습니다.</strong>{' '}
+                  각 단계가 끝날 때마다 여러 관점에서 검토하고, 무엇을 채택할지는 제가 직접 판단했습니다.
+                </>
+              ) : (
+                room.aiUsage.intro
+              )}
             </p>
-            <div className="mt-10 grid gap-x-8 gap-y-10 md:grid-cols-2">
-              {room.aiUsage.blocks.map((block) => (
-                <Reveal key={block.title}>
-                  <article className="border-t border-line pt-5">
-                    <p
-                      className="font-body font-semibold uppercase tracking-[0.18em] text-[11.5px]"
-                      style={{ color: project.ink }}
-                    >
-                      {block.eyebrow}
-                    </p>
-                    <h3 className="font-body font-bold text-ink text-[18px] leading-[1.45] mt-3">
-                      {block.title}
-                    </h3>
-                    <dl className="mt-4 grid gap-4">
-                      <div>
-                        <dt className="font-body font-semibold text-[12px] tracking-[0.08em] text-text-muted">
-                          사용한 때
-                        </dt>
-                        <dd className="font-body text-text-sub text-[14.5px] leading-[1.7] mt-1 m-0">
-                          {block.usedWhen}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="font-body font-semibold text-[12px] tracking-[0.08em] text-text-muted">
-                          사용 방식
-                        </dt>
-                        <dd className="m-0 mt-2">
-                          <ul className="grid gap-2">
-                            {block.how.map((item) => (
-                              <li
-                                key={item}
-                                className="font-body text-text-sub text-[14.5px] leading-[1.65] grid grid-cols-[8px_1fr] gap-3"
-                              >
-                                <span
-                                  className="mt-[0.72em] h-1.5 w-1.5 rounded-full"
-                                  style={{ background: project.ink }}
-                                  aria-hidden
-                                />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="font-body font-semibold text-[12px] tracking-[0.08em] text-text-muted">
-                          남긴 결과
-                        </dt>
-                        <dd className="font-body text-text-sub text-[14.5px] leading-[1.7] mt-1 m-0">
-                          {block.output}
-                        </dd>
-                      </div>
-                    </dl>
-                  </article>
-                </Reveal>
+
+            {/* 프로세스 맵 — 10초 스캔용 한 줄 흐름 (제작 과정의 순서) */}
+            <ol className="mt-8 flex flex-wrap items-center gap-x-2.5 gap-y-2.5">
+              {room.aiUsage.blocks.map((block, i, arr) => (
+                <li key={block.title} className="flex items-center gap-2.5">
+                  <span className="font-body text-[12.5px] tracking-[0.01em] text-text-sub">
+                    <span className="font-display text-[12px] mr-1.5 align-[1px]" style={{ color: project.ink }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    {block.step ?? block.eyebrow}
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span className="text-text-muted/55 select-none" aria-hidden>→</span>
+                  )}
+                </li>
               ))}
-            </div>
+            </ol>
+
+            {/* 세로 스텝 흐름 — 번호 노드 + 연결선 스파인 */}
+            <ol className="mt-12">
+              {room.aiUsage.blocks.map((block, i, arr) => {
+                const num = String(i + 1).padStart(2, '0')
+                const isLast = i === arr.length - 1
+                return (
+                  <li key={block.title}>
+                    <Reveal>
+                      <div className="grid grid-cols-[44px_1fr] gap-x-5 md:grid-cols-[56px_1fr] md:gap-x-8">
+                        {/* 좌측: 번호 노드 + 다음 단계로 잇는 연결선 */}
+                        <div className="relative flex flex-col items-center">
+                          <span
+                            className="grid place-items-center rounded-full font-display leading-none h-11 w-11 md:h-12 md:w-12 text-[15px] md:text-[17px] shrink-0"
+                            style={
+                              isLast
+                                ? { background: project.ink, color: '#fff' }
+                                : { border: `1.5px solid ${project.ink}`, color: project.ink }
+                            }
+                          >
+                            {num}
+                          </span>
+                          {!isLast && (
+                            <span
+                              className="mt-1.5 w-px flex-1"
+                              style={{ background: `color-mix(in srgb, ${project.ink} 28%, transparent)` }}
+                              aria-hidden
+                            />
+                          )}
+                        </div>
+
+                        {/* 우측: 단계 상세 */}
+                        <div className={isLast ? 'pb-0' : 'pb-12 md:pb-14'}>
+                          <div className="flex items-baseline gap-x-2.5 flex-wrap">
+                            <p
+                              className="font-body font-semibold uppercase tracking-[0.18em] text-[11.5px]"
+                              style={{ color: project.ink }}
+                            >
+                              {block.eyebrow}
+                            </p>
+                            {block.step && (
+                              <span className="font-body text-[12px] text-text-muted">· {block.step}</span>
+                            )}
+                          </div>
+                          <h3 className="font-body font-bold text-ink text-[18px] md:text-[19.5px] leading-[1.4] mt-2">
+                            {block.title}
+                          </h3>
+
+                          <dl className="mt-4 grid gap-3.5">
+                            <div className="grid grid-cols-[max-content_1fr] gap-x-3 items-baseline">
+                              <dt className="font-body font-semibold text-[11.5px] tracking-[0.05em] text-text-muted whitespace-nowrap">
+                                사용한 때
+                              </dt>
+                              <dd className="font-body text-text-sub text-[14px] leading-[1.65] m-0">
+                                {block.usedWhen}
+                              </dd>
+                            </div>
+                            <div>
+                              <dt className="font-body font-semibold text-[11.5px] tracking-[0.05em] text-text-muted">
+                                사용 방식
+                              </dt>
+                              <dd className="m-0 mt-2">
+                                <ul className="grid gap-2">
+                                  {block.how.map((item) => (
+                                    <li
+                                      key={item}
+                                      className="font-body text-text-sub text-[14.5px] leading-[1.65] grid grid-cols-[7px_1fr] gap-3"
+                                    >
+                                      <span
+                                        className="mt-[0.7em] h-1.5 w-1.5 rounded-full shrink-0"
+                                        style={{ background: project.ink }}
+                                        aria-hidden
+                                      />
+                                      <span>{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </dd>
+                            </div>
+                            <div className="grid grid-cols-[max-content_1fr] gap-x-3 items-baseline">
+                              <dt className="font-body font-semibold text-[11.5px] tracking-[0.05em] text-text-muted whitespace-nowrap">
+                                남긴 결과
+                              </dt>
+                              <dd className="font-body text-text-sub text-[14px] leading-[1.65] m-0">
+                                {block.output}
+                              </dd>
+                            </div>
+                          </dl>
+                        </div>
+                      </div>
+                    </Reveal>
+                  </li>
+                )
+              })}
+            </ol>
           </div>
         </section>
       )}
