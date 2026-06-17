@@ -12,7 +12,7 @@ import Label, { labelEnClass as labelEn } from '../components/Label'
 import FlipTitle, { type FlipTitleHandle } from '../components/transition/FlipTitle'
 import { PROJECTS, type Project, type PreviewDetail } from '../data/projects'
 import { SIDE_WORKS, type SideWork, type SideWorkImage } from '../data/sideWorks'
-import { FEATURED_WRITING, VELOG_PROFILE, VELOG_URL, WRITING, WRITING_AXES, type Post } from '../data/writing'
+import { FEATURED_WRITING, VELOG_PROFILE, VELOG_URL, type Post } from '../data/writing'
 import { scrollToId } from '../lib/lenis'
 import { enterRoom } from '../lib/signature'
 import FloatingObject from '../components/FloatingObject'
@@ -23,8 +23,13 @@ const sectionPad = { paddingBlock: 'clamp(96px, 12vw, 180px)' }
 /* SelectedBlock 프로젝트별 종이 조각 장식은 각 프로젝트 데이터(projects.ts `blockObjects`)가 들고 있다.
    tintSoft 배경과 색조 조화 — PULSE(연파랑)·PickFit(연보라)·LikeLion(연파랑). 블록당 보통 2개. */
 
-/* 생각의 기록 — 축별 MS Paint 낙서 (섹션 전용 언어 §0.1) */
-const AXIS_DOODLE = ['squiggle', 'arrow', 'star'] as const
+/* 생각의 기록 — 대표 글마다 도는 MS Paint 낙서 (섹션 전용 언어 §0.1) */
+const ROW_DOODLE = ['arrow', 'squiggle', 'star'] as const
+
+/* 대표 글 진입 모션 — 각 행이 독립적으로 whileInView (FloatingObject와 동일 패턴).
+   위에서 떠오르며 index*0.08s 스태거. transform/opacity만(§8).
+   MotionConfig reducedMotion="user" → transform 억제·opacity 유지. */
+const WRITING_REVEAL_EASE = [0.22, 1, 0.36, 1] as const
 
 export default function Landing() {
   return (
@@ -360,38 +365,40 @@ function PreviewMap({ detail }: { detail: PreviewDetail }) {
 function Writing() {
   return (
     <section id="writing" aria-label="생각의 기록" className="relative overflow-hidden border-t border-line">
-      {/* ── 종이 콜라주 오브젝트 ─────────────────────────────────────────────
-          Tier A: 우측 세로 가격표 태그 — "생각에 라벨을 붙인다" 은유
-          Tier B: 좌상단 베이지 종이 — 섹션 진입 분위기
-          Tier C: 우하단 연한 원점 — 미세 질감
+      {/* ── 종이 콜라주 오브젝트 (common 팩) ──────────────────────────────────
+          핀 꽂은 메모/매단 라벨 어휘로 "생각에 라벨을 붙인다" 은유.
+          라벤더·진한 파랑 카드는 §8(AI 블루/보라) 가드레일에 닿아 제외 — 크림/뉴트럴 위주.
+          Tier A: 핀 꽂은 크림 메모(004) + 매단 빈 라벨 태그(015)
+          Tier B: 좌하단 크림 접힌 메모(044) · Tier C: 미세 검정 점(009)
           ─────────────────────────────────────────────────────────────────── */}
       <FloatingObject
-        src="/images/design-assets/objects/common/common-object-015.png"
-        width={70} opacity={0.38} rotate={-5}
-        top="12%" right="-2%"
-        tier="A" floatDuration={9} floatDelay={1.5}
+        src="/images/design-assets/objects/common/common-object-004.png"
+        width={132} opacity={0.5} rotate={4}
+        top="9%" right="3%"
+        tier="A" floatDuration={9} floatDelay={0.8}
         revealDelay={300}
         hideOnMobile
       />
       <FloatingObject
-        src="/images/design-assets/objects/common/common-object-023.png"
-        width={168} opacity={0.36} rotate={20}
-        top="-3%" left="-2%"
-        tier="B" revealDelay={500}
+        src="/images/design-assets/objects/common/common-object-015.png"
+        width={62} opacity={0.42} rotate={-7}
+        top="31%" right="9%"
+        tier="A" floatDuration={7.5} floatDelay={1.8}
+        revealDelay={500}
+        hideOnMobile
+      />
+      <FloatingObject
+        src="/images/design-assets/objects/common/common-object-044.png"
+        width={150} opacity={0.3} rotate={-5}
+        bottom="14%" left="1%"
+        tier="B" revealDelay={700}
         hideOnMobile
       />
       <FloatingObject
         src="/images/design-assets/objects/common/common-object-009.png"
-        width={40} opacity={0.18} rotate={0}
-        bottom="20%" right="15%"
-        tier="C" revealDelay={700}
-        hideOnMobile
-      />
-      <FloatingObject
-        src="/images/design-assets/objects/common/common-object-017.png"
-        width={225} opacity={0.24} rotate={-4}
-        bottom="10%" left="2%"
-        tier="B" revealDelay={900}
+        width={34} opacity={0.16} rotate={0}
+        top="62%" left="13%"
+        tier="C" revealDelay={900}
         hideOnMobile
       />
       <div className="mx-auto max-w-[1200px] container-pad" style={sectionPad}>
@@ -406,7 +413,7 @@ function Writing() {
             </p>
             <p className="font-body text-text-sub text-[15.5px] leading-[1.75] mt-5 max-w-[68ch]">
               벨로그에는 AI를 일에 붙이는 방식, PM/UX 기획 수업에서 정리한 기준, 사용자와 조직을 해석한
-              생각들을 기록하고 있습니다.
+              생각들을 기록하고 있습니다. 그중 저를 가장 잘 보여주는 네 편을 골랐습니다.
             </p>
           </div>
 
@@ -429,147 +436,115 @@ function Writing() {
                 </li>
               ))}
             </ul>
-            <a
-              href={VELOG_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="font-body font-semibold text-[13px] tracking-[0.04em] text-velog mt-6 inline-block"
-            >
-              Velog 전체 보기 →
-            </a>
           </aside>
         </div>
 
-        <section aria-label="대표 벨로그 글" className="mt-16">
+        <section aria-label="대표 벨로그 글" className="mt-14">
           <div className="flex items-center gap-3">
             <Label as="h3" lang="ko">대표 글</Label>
             <Doodle variant="arrow" className="translate-y-[1px]" />
           </div>
-          <ul className="mt-8 grid gap-8 lg:grid-cols-3">
-            {FEATURED_WRITING.map((post) => (
-              <FeaturedPostItem key={post.slug} post={post} />
+          <ul className="mt-6">
+            {FEATURED_WRITING.map((post, i) => (
+              <FeaturedRow key={post.slug} post={post} index={i} doodle={ROW_DOODLE[i % ROW_DOODLE.length]} />
             ))}
           </ul>
         </section>
 
-        <section aria-label="전체 벨로그 글" className="mt-20">
-          {WRITING_AXES.map((axis, axisIndex) => (
-            <div key={axis} className="border-t border-line py-10 grid gap-8 lg:grid-cols-[240px_1fr]">
-              <div className="flex items-start gap-3 pt-1">
-                <Label as="h3" lang="ko">{axis}</Label>
-                <Doodle variant={AXIS_DOODLE[axisIndex] ?? 'squiggle'} className="translate-y-[1px]" />
-              </div>
-              <ul className="grid gap-0 md:grid-cols-2 md:gap-x-10">
-                {WRITING.filter((w) => w.axis === axis).map((w) => (
-                  <li key={w.slug} className="border-t border-line first:border-t-0 md:[&:nth-child(2)]:border-t-0">
-                    <ArchivePostItem post={w} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+        {/* 찢은 종이 디바이더 (common-object-017) — 대표 글 ↔ 전체 보기 사이 */}
+        <div
+          aria-hidden
+          className="mt-12 hidden md:block opacity-50"
+          style={{
+            height: 14,
+            backgroundImage: 'url(/images/design-assets/objects/common/common-object-017.png)',
+            backgroundRepeat: 'repeat-x',
+            backgroundSize: 'auto 14px',
+          }}
+        />
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2">
+          <a
+            href={VELOG_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex items-center gap-2 font-body font-semibold text-[15px] tracking-[0.02em] text-velog"
+          >
+            Velog에서 {VELOG_PROFILE.postCount}편 전체 보기
+            <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </a>
+          <p className="font-body text-text-muted text-[13px]">
+            AI·일하는 방식 / PM·UX·교육 / 사용자·조직·데이터 해석
+          </p>
+        </div>
       </div>
     </section>
   )
 }
 
-function TagList({ tags }: { tags: string[] }) {
+function FeaturedRow({
+  post,
+  doodle,
+  index,
+}: {
+  post: Post
+  doodle: (typeof ROW_DOODLE)[number]
+  index: number
+}) {
   return (
-    <ul className="flex flex-wrap gap-1.5" aria-label="글 태그">
-      {tags.map((tag) => (
-        <li key={tag} className="font-body font-semibold text-[11px] leading-none text-velog">
-          #{tag}
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function FeaturedPostItem({ post }: { post: Post }) {
-  return (
-    <li>
-      <article className="border-t border-line pt-5 h-full">
-        <a href={post.href} target="_blank" rel="noreferrer" className="group grid grid-cols-[1fr_108px] gap-4 lg:flex lg:flex-col">
-          <div>
-            <p className="font-body font-semibold text-[12px] tracking-[0.08em] text-text-muted">
-              {post.releasedAt} · {post.source}
-            </p>
-            <h3 className="font-body font-bold text-ink text-[18px] leading-[1.45] mt-3 group-hover:underline underline-offset-4">
-              {post.title}
-            </h3>
-            <p className="font-body text-text-sub text-[14px] leading-[1.65] mt-2">
-              {post.summary}
-            </p>
-          </div>
-          <img
-            src={post.thumbnail}
-            alt=""
-            aria-hidden
-            loading="lazy"
-            decoding="async"
-            className="w-[108px] h-[72px] sm:w-[160px] sm:h-[96px] lg:w-[180px] lg:h-[108px] object-cover justify-self-end"
-            style={{ borderRadius: 8 }}
-          />
-        </a>
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-          <TagList tags={post.tags} />
-          <p className="font-body text-text-muted text-[12px]">{post.connect}</p>
+    <motion.li
+      className="border-t border-line first:border-t-0"
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: WRITING_REVEAL_EASE }}
+    >
+      <a
+        href={post.href}
+        target="_blank"
+        rel="noreferrer"
+        className="group grid gap-3 py-6 sm:grid-cols-[112px_1fr_184px] sm:gap-6 sm:items-start"
+      >
+        {/* 날짜·소스 — sm 이상에서만 좌측 레일 */}
+        <div className="hidden sm:block">
+          <p className="font-body font-semibold text-[11.5px] tracking-[0.06em] text-text-faint">
+            {post.releasedAt}
+          </p>
+          <p className="font-body text-[12px] text-text-muted mt-1">{post.source}</p>
         </div>
-        {post.imageStrip && (
-          <ul className="mt-4 flex gap-2 overflow-hidden" aria-label={`${post.title} 본문 이미지 미리보기`}>
-            {post.imageStrip.slice(0, 3).map((src) => (
-              <li key={src} className="shrink-0">
-                <img
-                  src={src}
-                  alt=""
-                  aria-hidden
-                  loading="lazy"
-                  decoding="async"
-                  className="h-14 w-20 md:h-16 md:w-24 object-cover"
-                  style={{ borderRadius: 6 }}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-      </article>
-    </li>
-  )
-}
 
-function ArchivePostItem({ post }: { post: Post }) {
-  return (
-    <article className="py-5">
-      <a href={post.href} target="_blank" rel="noreferrer" className="group grid grid-cols-[1fr_88px] gap-4 sm:grid-cols-[1fr_96px]">
         <div>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <p className="font-body font-semibold text-[12px] tracking-[0.08em] text-text-muted">
-              {post.releasedAt}
-            </p>
-            <TagList tags={post.tags} />
-          </div>
-          <h4 className="font-body font-bold text-ink text-[16px] leading-[1.5] mt-2 group-hover:underline underline-offset-4">
-            {post.title}
-          </h4>
-          <p className="font-body text-text-sub text-[13.5px] leading-[1.6] mt-1.5">
-            {post.description}
+          <p className="font-body font-semibold text-[11.5px] tracking-[0.06em] text-text-faint sm:hidden">
+            {post.releasedAt} · {post.source}
           </p>
-          <p className="font-body text-text-muted text-[12px] mt-2">
-            {post.source} → {post.connect}
+          <div className="flex items-start gap-2 mt-1 sm:mt-0">
+            <h4 className="font-body font-bold text-ink text-[18px] leading-[1.4] group-hover:underline underline-offset-4">
+              {post.title}
+            </h4>
+            {/* MS Paint 낙서 — 호버 시 손으로 그려짐(§0.1 섹션 전용) */}
+            <Doodle variant={doodle} draw className="shrink-0 translate-y-[3px]" />
+          </div>
+          <p className="font-body text-text-sub text-[14px] leading-[1.65] mt-2 max-w-[60ch]">
+            {post.summary}
+          </p>
+          {/* 글 → 작업 연결 — 호버 시 민트로 강조(이중 동선 다리) */}
+          <p className="font-body font-semibold text-[12px] text-text-muted mt-3 transition-colors group-hover:text-velog">
+            → {post.connect}
           </p>
         </div>
+
+        {/* 썸네일 — 핀으로 꽂은 메모처럼 호버 시 살짝 기울기 */}
         <img
           src={post.thumbnail}
           alt=""
           aria-hidden
           loading="lazy"
           decoding="async"
-          className="w-[88px] h-[60px] sm:w-[96px] sm:h-16 object-cover justify-self-end mt-1"
+          className="w-[150px] h-[96px] sm:w-[184px] sm:h-[118px] object-cover justify-self-start sm:justify-self-end transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-rotate-2 group-hover:scale-[1.03]"
           style={{ borderRadius: 6 }}
         />
       </a>
-    </article>
+    </motion.li>
   )
 }
 

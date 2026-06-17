@@ -134,6 +134,19 @@ body {
   animation: tk-float var(--float-dur, 6s) var(--float-delay, 0s) ease-in-out infinite;
 }
 
+/* '생각의 기록' 낙서 draw-on (Doodle.tsx draw) — 부모 .group 호버/포커스 시 손으로 그리는 효과.
+   pathLength=1 정규화 → dasharray/offset 1로 경로 전체를 제어. §0.1 섹션 전용 언어.
+   reduced-motion 전역 transition-duration:.01ms 에 의해 자동으로 즉시 표시(스냅)된다. */
+.tk-doodle-draw path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--motion-slow) var(--ease-default);
+}
+.group:hover .tk-doodle-draw path,
+.group:focus-visible .tk-doodle-draw path {
+  stroke-dashoffset: 0;
+}
+
 /* 가드레일: reduced-motion 필수 (design-direction §8) */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
