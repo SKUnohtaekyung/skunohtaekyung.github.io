@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     tintSoft: '#FBFDEA',
     role: '개인 프로젝트 · 기획·디자인·FE·BE·DB 단독 · AI Workflow',
     summary:
-      '선택 피로를 줄이는 AI 코디 추천 서비스를 기획, 브랜드, 디자인 시스템, 프론트·백엔드·DB까지 직접 설계하고 구현했습니다.',
+      '결정 피로를 줄이는 AI 코디 추천 서비스를 기획, 브랜드, 디자인 시스템, 프론트·백엔드·DB까지 직접 설계하고 구현했습니다.',
     anchorId: 'selected-pickfit',
     tagline: '선택→결정',
     tenSecond: '고르는 시간을 줄여 결정에 집중하게 하는 AI 코디 추천',

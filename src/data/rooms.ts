@@ -31,9 +31,13 @@ export interface AiUsageBlock {
   step?: string
   eyebrow: string
   title: string
+  /** 스캔 레이어(접힘 상태)용 한 줄 결과. 없으면 output 사용. */
+  scanResult?: string
   usedWhen: string
   how: string[]
   output: string
+  /** 펼침 영역 안에 붙는 인라인 증거 슬라이드(예: ④검증게이트, ⑤추천로직). */
+  evidence?: EvidenceItem
 }
 
 export interface RoomObject {
@@ -90,6 +94,11 @@ export interface RoomData {
   aiUsage?: {
     intro: string
     blocks: AiUsageBlock[]
+    /** AI 사용 섹션 말미 '풀스택 깊이' 보조 1장(예: DB 스키마). */
+    fullStackProof?: {
+      label: string
+      item: EvidenceItem
+    }
   }
   writingRefs?: {
     title: string
@@ -289,23 +298,27 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
     key: 'pickfit',
     bgImage: '/images/design-assets/rooms/pickfit_room_bg.png',
     mainWallFrame: '/images/design-assets/rooms/pickfit_phoneframe.png',
+    // 룸 입구 — 스타일링 보드 감각의 패션 컷 5종(우측 산포). 비패션(빈 폰·풍경·블롭) 제거.
     roomObjects: [
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-007.png', width: 200, opacity: 0.82, rotate:  4, top: '10%', right: '4%' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-003.png', width:  85, opacity: 0.78, rotate: -7, top: '25%', right: '26%' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-024.png', width: 135, opacity: 0.75, rotate: -3, top: '48%', right: '7%' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-001.png', width: 100, opacity: 0.72, rotate:  9, bottom: '10%', right: '22%' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-016.png', width: 120, opacity: 0.68, rotate: -5, top: '12%', right: '28%' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-035.png', width: 185, opacity: 0.80, rotate:  4, top: '10%', right: '4%' },   // 탱크+긴팔 두 벌(히어로)
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-013.png', width:  82, opacity: 0.64, rotate: -5, top: '13%', right: '28%' },   // 컬러 스와치 칩
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-002.png', width: 124, opacity: 0.62, rotate: -8, top: '35%', right: '22%' },   // 라임 옷걸이(라임 절제)
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-033.png', width: 104, opacity: 0.66, rotate: -3, top: '49%', right: '6%' },    // 라임 토트백(라임 절제)
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-005.png', width:  60, opacity: 0.70, rotate:  9, bottom: '11%', right: '21%' }, // 가격표
     ],
+    // 콘텐츠 사이드 마진 — 패션 컷을 페이지 전체에 좌우 교번 산포(증거 미가림). 코디·블레이저·옷걸이·스와치·립스틱·티셔츠·핸드백·하이힐·팬츠·드레스.
     contentObjects: [
       { src: '/images/design-assets/objects/pickfit/pickfit-object-010.png', width: 140, opacity: 0.55, rotate: -4, top:  '5%', right: '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-012.png', width:  80, opacity: 0.48, rotate:  6, top: '12%', left:  '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-009.png', width: 100, opacity: 0.50, rotate:  8, top: '20%', left:  '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-008.png', width: 100, opacity: 0.50, rotate: -5, top: '29%', right: '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-011.png', width: 130, opacity: 0.52, rotate:  5, top: '38%', right: '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-029.png', width:  90, opacity: 0.48, rotate:  7, top: '47%', left:  '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-025.png', width:  85, opacity: 0.48, rotate: -7, top: '56%', left:  '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-032.png', width:  90, opacity: 0.48, rotate: -4, top: '65%', right: '0' },
-      { src: '/images/design-assets/objects/pickfit/pickfit-object-030.png', width: 120, opacity: 0.50, rotate:  4, top: '74%', right: '0' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-012.png', width:  80, opacity: 0.50, rotate:  6, top: '13%', left:  '0' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-008.png', width:  98, opacity: 0.56, rotate: -5, top: '21%', right: '0' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-009.png', width: 100, opacity: 0.50, rotate:  8, top: '30%', left:  '0' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-011.png', width: 125, opacity: 0.52, rotate:  5, top: '38%', right: '0' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-036.png', width: 150, opacity: 0.50, rotate: -3, top: '47%', left:  '0' },  // 두 벌 팬츠(여백 넓은 구역)
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-025.png', width:  85, opacity: 0.50, rotate: -7, top: '55%', right: '0' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-026.png', width:  98, opacity: 0.52, rotate: -6, top: '63%', left:  '0' },  // 티셔츠
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-032.png', width:  90, opacity: 0.50, rotate: -4, top: '71%', right: '0' },
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-029.png', width:  76, opacity: 0.50, rotate:  7, top: '80%', left:  '0' },  // 하이힐(좁은 InfoDock 대역)
+      { src: '/images/design-assets/objects/pickfit/pickfit-object-030.png', width: 120, opacity: 0.50, rotate:  4, top: '88%', right: '0' },
     ],
     entranceLine:
       '기획, 브랜드, 디자인 시스템, 프론트엔드, 백엔드, 데이터베이스를 직접 설계하고 구현한 AI 코디 추천 서비스입니다.',
@@ -320,7 +333,7 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
     casePanels: [
       {
         eyebrow: 'planning',
-        title: '선택 피로를 “위임형 추천” 문제로 재정의',
+        title: '결정 피로를 “위임형 추천” 문제로 재정의',
         body:
           '처음부터 상황과 취향을 말하면 사용자가 바로 결정할 수 있는 후보를 좁혀주는 제품으로 기획했습니다.',
       },
@@ -345,6 +358,7 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
           step: '계획',
           eyebrow: 'prompting',
           title: '코드를 쓰기 전에 Plan 모드로 기획·개발 계획부터 설계',
+          scanResult: '구현 전에 합의한 기획·개발 기준선',
           usedWhen: '한 줄도 구현하기 전, 무엇을 어떤 순서로 만들지 정하는 단계',
           how: [
             '바로 구현을 시키지 않고 Plan 모드로 전환해, 기획 의도와 개발 순서를 문서 수준으로 자세히 짜게 했습니다.',
@@ -357,6 +371,7 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
           step: '전문성',
           eyebrow: 'skills',
           title: 'PM·개발 전문성을 재사용 가능한 “Skill”로 고정',
+          scanResult: 'PM·FE·BE·DB 기준을 담은 전문가 도구 세트',
           usedWhen: '매번 새로 판단하지 않도록, 기획·개발의 기준을 미리 도구로 박아두는 단계',
           how: [
             'Skill은 특정 전문성을 파일로 묶어, 필요할 때 AI가 꺼내 쓰는 재사용 도구입니다 — 매번 같은 설명을 반복하지 않아도 됩니다.',
@@ -369,6 +384,7 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
           step: '병렬 검토',
           eyebrow: 'subagents',
           title: '한 단계가 끝날 때마다 분야별 전문가 AI를 병렬로 호출',
+          scanResult: '분야별로 한 번에 모은 검토 피드백',
           usedWhen: '한 페이즈(기획·디자인·프론트·백엔드 등)를 끝내고, 결과를 여러 관점에서 점검할 때',
           how: [
             '서브에이전트는 각자 독립된 작업 공간을 가진 별도의 AI입니다. 메인 대화를 어지럽히지 않고 한 가지 일에 집중합니다.',
@@ -381,6 +397,7 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
           step: '종합·게이트',
           eyebrow: 'harness engineering',
           title: '의견을 종합하고, 다음 단계로 넘길지 판단하는 게이트를 설계',
+          scanResult: '통과 기준을 정한 단계별 품질 게이트',
           usedWhen: '병렬로 모인 의견을 합쳐 페이즈를 “완결”하고 다음으로 넘어갈지 정하는 단계',
           how: [
             '하네스 엔지니어링은 프롬프트 한 줄을 넘어, AI들이 일하는 “판”을 설계하는 일입니다 — 누구를 언제 부르고, 결과를 어떻게 합치고, 언제 다음으로 넘길지의 규칙.',
@@ -388,11 +405,17 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
             '검토에서 개선점이 나오면 같은 페이즈를 다시 손봤고, 충분히 완결됐다고 판단될 때만 다음 단계로 넘어가는 “게이트”를 뒀습니다.',
           ],
           output: '페이즈마다 종합 → 개선 → 통과를 거치는 단계별 품질 게이트',
+          evidence: {
+            src: '/images/evidence/pickfit/validation_gate.png',
+            alt: 'PickFit AI 검증 게이트 — AI 추천을 코디 3벌·중복 없음·후보 목록 내·확신도 정상 네 조건으로 검증해 통과/실패로 분기하는 구조',
+            caption: 'AI 출력을 한 번 더 검증하는 게이트를 직접 설계 — 네 조건을 모두 통과해야 사용자에게 노출',
+          },
         },
         {
           step: '최종 판단',
           eyebrow: 'human judgment',
           title: '무엇을 채택하고 버릴지, 마지막 10점은 직접 결정',
+          scanResult: '사람이 정한 제품의 최종 방향',
           usedWhen: 'AI가 낸 여러 제안 중 제품의 방향을 최종으로 못 박는 단계',
           how: [
             'AI 제안은 초안·대안·검토용으로만 쓰고, 제품의 문제 정의와 우선순위는 제가 직접 정했습니다.',
@@ -400,19 +423,44 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
             'AI가 90점을 빠르게 만들어주면, 마지막 10점 — 무엇이 진짜 중요한가 — 은 사람이 판단해야 한다고 봤습니다.',
           ],
           output: '기획·디자인·AI 사용까지 한 방향으로 정렬된 PickFit 케이스스터디',
+          evidence: {
+            src: '/images/evidence/pickfit/recommendation_logic.png',
+            alt: 'PickFit 추천 로직 — 사용자 조건을 점수(상황 +4·핏 +3·무드 +2·색 +1·싫은 조건 -4)로 바꿔 후보를 추리고 완성 코디 3벌로 제공하는 규칙',
+            caption: '조건을 점수로 바꿔 코디 3벌로 — 가중치 규칙은 AI가 아니라 제가 직접 설계',
+          },
         },
       ],
+      fullStackProof: {
+        label: '풀스택 깊이 — 추천을 떠받치는 데이터 구조',
+        item: {
+          src: '/images/evidence/pickfit/db_schema.png',
+          alt: 'PickFit DB 스키마 — users·recommendation_runs·recommendation_outfits·recommendation_items·products·crawl_jobs·saved_outfits·feedback_events 핵심 8테이블과 보조 4테이블의 단순화 구조',
+          caption: '추천을 떠받치는 핵심 8개 + 보조 4개 테이블 — 기획부터 DB까지 풀스택으로 직접 설계',
+        },
+      },
     },
     evidence: [],
     evidenceGroups: [
       {
-        label: '기획 인사이트 — 클릭에서 위임으로',
-        desc: '쇼핑 UX의 패러다임 변화에서 PickFit의 방향을 잡은 핵심 인사이트입니다. 조건을 위임하면 후보를 좁혀주는 구조로 포지션을 정의했습니다.',
+        label: '왜 만들었나 — 고르는 일이 결정 노동이 될 때',
+        desc: '왜 쇼핑이 오래 걸리는지, 누가 지쳐 있는지, 시장이 어디로 움직이는지를 차례로 짚으며 PickFit의 방향을 잡았습니다.',
         items: [
           {
+            src: '/images/evidence/pickfit/problem.png',
+            alt: 'PickFit 문제 정의 슬라이드 — 패션 쇼핑이 오래 걸리는 네 가지 이유: 상품 과다, 리뷰 직접 탐색, 코디 머릿속 조합, 사이즈·핏 실패 두려움',
+            caption: '패션 쇼핑이 오래 걸리는 네 가지 이유 — 상품 과다·리뷰 탐색·코디 조합·핏 실패',
+            layout: 'wide',
+          },
+          {
+            src: '/images/evidence/pickfit/persona.png',
+            alt: 'PickFit 페르소나 슬라이드 — 24세 대학생 김도윤의 프로필과 결정 피로 관련 페인포인트(상품 과다, 리뷰 비교 피곤, 조합의 어려움)',
+            caption: '결정 피로에 지친 24세 김도윤 — 빠르게 고르고 싶은 모바일 쇼퍼',
+            layout: 'wide',
+          },
+          {
             src: '/images/evidence/pickfit/shopping_ux_shift.png',
-            alt: "PickFit 인사이트 슬라이드 — '쇼핑 UX는 클릭에서 위임으로 이동 중'",
-            caption: '쇼핑 UX를 탐색형에서 위임형 추천 흐름으로 재정의한 인사이트',
+            alt: "PickFit 인사이트 슬라이드 — '쇼핑 UX는 클릭에서 위임으로 이동 중', 과거/AI 시대 비교와 에이전틱 AI 커머스 시장 지표",
+            caption: '클릭에서 위임으로 옮겨가는 쇼핑 UX — 조건을 맡기면 후보를 좁혀주는 추천',
             layout: 'wide',
           },
         ],
@@ -468,7 +516,7 @@ export const ROOMS: Record<ProjectKey, RoomData> = {
     ],
     infoDock: {
       problem: [
-        '패션 쇼핑은 상품, 리뷰, 코디, 핏, 예산을 동시에 비교해야 해서 선택 피로가 큽니다.',
+        '패션 쇼핑은 상품, 리뷰, 코디, 핏, 예산을 동시에 비교해야 해서 결정 피로가 큽니다.',
         '사용자는 긴 리스트보다 “내 상황에 맞는 선택지”와 “왜 이 코디인지”를 먼저 찾습니다.',
       ],
       insight: [
